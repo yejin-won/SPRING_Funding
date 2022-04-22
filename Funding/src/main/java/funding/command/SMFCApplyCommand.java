@@ -1,0 +1,31 @@
+package funding.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import funding.dao.FDaoS;
+import funding.dto.FDtoFunding;
+
+public class SMFCApplyCommand implements FCommand {
+
+	@Override
+	public void execute(Model model) {
+		
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String funding_num = request.getParameter("funding_num");
+		//String funding_seller = request.getParameter(funding_num);
+		
+		FDaoS daoS = new FDaoS();
+		FDtoFunding dto = daoS.calfunding(funding_num);
+		String result = daoS.calinf(funding_num);
+		request.setAttribute("funding", dto);
+		request.setAttribute("cal", result);
+	
+	}
+
+}
