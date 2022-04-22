@@ -93,7 +93,7 @@ public class HomeController {
 			System.out.println("login()");
 			model.addAttribute("request", request);
 			command = new LoginCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -103,7 +103,7 @@ public class HomeController {
 			System.out.println("sociallogin()");
 			model.addAttribute("request", request);
 			command = new SocialLoginCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -113,7 +113,7 @@ public class HomeController {
 			System.out.println("logout()");
 			model.addAttribute("request", request);
 			command = new LogoutCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "main.do?sort=all";
 		}
@@ -123,7 +123,7 @@ public class HomeController {
 			System.out.println("leave()");
 			model.addAttribute("request", request);
 			command = new LeaveCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "main.do?sort=all";
 		}
@@ -134,7 +134,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new MainCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return "main";
 		}
@@ -145,7 +145,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new SignupCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return "../../pages/login";
 		}
@@ -161,7 +161,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new FindidCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return (String) request.getAttribute("viewpage");
 		}
@@ -179,7 +179,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new FindpwCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return (String) request.getAttribute("viewpage");
 		}
@@ -191,7 +191,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new FundingListViewCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return "../../pages/funding_list_view";
 		}
@@ -202,7 +202,7 @@ public class HomeController {
 			
 			model.addAttribute("request", request);
 			command = new SearchCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return "../../pages/funding_list_view";
 		}
@@ -212,7 +212,7 @@ public class HomeController {
 			System.out.println("fcontentView()");
 			model.addAttribute("request", request);
 			command = new FundingdetailCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return "../../pages/detail";
 		}
@@ -222,7 +222,7 @@ public class HomeController {
 			System.out.println("flike()");
 			model.addAttribute("request", request);
 			command = new FundingLikeCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 		
 			return (String) request.getAttribute("viewpage");
 		}
@@ -232,7 +232,7 @@ public class HomeController {
 			System.out.println("funlike()");
 			model.addAttribute("request", request);
 			command = new FundingUnlikeCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -242,7 +242,7 @@ public class HomeController {
 			System.out.println("forder()");
 			model.addAttribute("request", request);
 			command = new FundingPaymentCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "fundingOrder";
 		}
@@ -252,7 +252,7 @@ public class HomeController {
 			System.out.println("fquestion()");
 			model.addAttribute("request", request);
 			command = new FundingQuestionCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -262,7 +262,7 @@ public class HomeController {
 			System.out.println("sysQL()");
 			model.addAttribute("request", request);
 			command = new SystemQuestionlistCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/systemquestion_list";
 		}
@@ -272,7 +272,7 @@ public class HomeController {
 			System.out.println("sysQS()");
 			model.addAttribute("request", request);
 			command = new SystemQuestionSearchCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/systemquestion_list";
 		}
@@ -282,7 +282,7 @@ public class HomeController {
 			System.out.println("sysQ()");
 			model.addAttribute("request", request);
 			command = new SystemQuestionCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "systemQuestion_list";
 		}
@@ -292,7 +292,7 @@ public class HomeController {
 			System.out.println("sysQD()");
 			model.addAttribute("request", request);
 			command = new SystemQuestionDetailCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/systemquestion_detail";
 		}
@@ -302,7 +302,7 @@ public class HomeController {
 			System.out.println("nL()");
 			model.addAttribute("request", request);
 			command = new NoticeListCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/notice";
 		}
@@ -312,7 +312,7 @@ public class HomeController {
 			System.out.println("nS()");
 			model.addAttribute("request", request);
 			command = new NoticeSearchCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/notice";
 		}
@@ -322,7 +322,7 @@ public class HomeController {
 			System.out.println("nD()");
 			model.addAttribute("request", request);
 			command = new NoticeDetailCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/notice_detail";
 		}
@@ -332,7 +332,7 @@ public class HomeController {
 			System.out.println("mypage()");
 			model.addAttribute("request", request);
 			command = new MypageCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/mypage";
 		}
@@ -342,7 +342,7 @@ public class HomeController {
 			System.out.println("myorderD()");
 			model.addAttribute("request", request);
 			command = new MyOrderDetailCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/myorder_detail";
 		}
@@ -352,7 +352,7 @@ public class HomeController {
 			System.out.println("myinfoM()");
 			model.addAttribute("request", request);
 			command = new MyinformationModifyCommand();	
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "logout.do?change=pw";
 		}
@@ -365,7 +365,7 @@ public class HomeController {
 			System.out.println("slogin()");
 			model.addAttribute("request", request);
 			command = new SLoginCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -375,7 +375,7 @@ public class HomeController {
 			System.out.println("slogout()");
 			model.addAttribute("request", request);
 			command = new SLogoutCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/slogin";
 		}
@@ -385,7 +385,7 @@ public class HomeController {
 			System.out.println("ssignup()");
 			model.addAttribute("request", request);
 			command = new SSignUpCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/slogin";
 		}
@@ -396,7 +396,7 @@ public class HomeController {
 			System.out.println("sfoapply()");
 			model.addAttribute("request", request);
 			command = new SFOApplyCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "main.do?sort=all";
 		}
@@ -406,7 +406,7 @@ public class HomeController {
 			System.out.println("sqapplyview()");
 			model.addAttribute("request", request);
 			command = new SQApplyCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sQApply_view";
 		}
@@ -422,7 +422,7 @@ public class HomeController {
 			System.out.println("smypage()");
 			model.addAttribute("request", request);
 			command = new SMypageCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			return "../../pages/Smypage";
 		}
 		
@@ -431,7 +431,7 @@ public class HomeController {
 			System.out.println("smfdetail()");
 			model.addAttribute("request", request);
 			command = new SMFDetailCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			return "../../pages/sMFDetail";
 		}
 
@@ -440,7 +440,7 @@ public class HomeController {
 			System.out.println("smfmodify()");
 			model.addAttribute("request", request);
 			command = new SMFDetailCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sMFManage";
 		}
@@ -450,7 +450,7 @@ public class HomeController {
 			System.out.println("sfddelete()");
 			model.addAttribute("request", request);
 			command = new SMFDetailDeleteCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sMFDDelete";
 		}
@@ -460,7 +460,7 @@ public class HomeController {
 			System.out.println("smfcapply()");
 			model.addAttribute("request", request);
 			command = new SMFCApplyDetailCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sMFCApply";
 		}
@@ -470,7 +470,7 @@ public class HomeController {
 			System.out.println("smfcapplyView()");
 			model.addAttribute("request", request);
 			command = new SMFCApplyViewCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sMFCApply_view";
 		}
@@ -480,7 +480,7 @@ public class HomeController {
 			System.out.println("sfadetail()");
 			model.addAttribute("request", request);
 			command = new SMFCApplyViewCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sFAnswer";
 		}
@@ -490,7 +490,7 @@ public class HomeController {
 			System.out.println("sfanswer()");
 			model.addAttribute("request", request);
 			command = new SFAnswerCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return (String)request.getAttribute("viewpage");
 		}
@@ -500,7 +500,7 @@ public class HomeController {
 			System.out.println("smyinfoM()");
 			model.addAttribute("request", request);
 			command = new SMyinformationModifyCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "sMypage";
 		}
@@ -510,7 +510,7 @@ public class HomeController {
 			System.out.println("movemycal()");
 			model.addAttribute("request", request);
 			command = new SMFCApplyCommand();
-			command.execute(model);
+			command.execute(sqlSession, model);
 			
 			return "../../pages/mycal";
 		}
