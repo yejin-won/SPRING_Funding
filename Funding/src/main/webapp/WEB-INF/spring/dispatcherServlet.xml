@@ -34,5 +34,11 @@
 	<beans:bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
+	
+	<beans:bean name ="slogin" class="funding.command.SLoginCommand"></beans:bean>
+	
+	
+	
+	<beans:bean name="daoSeller" class="funding.dao.FDaoSeller"></beans:bean>
 		
 </beans:beans>

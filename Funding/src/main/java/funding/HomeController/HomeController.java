@@ -93,6 +93,13 @@ public class HomeController {
 	
 	
 	FCommand command = null;
+	private FCommand sLoginCommand = null;
+	
+	@Autowired
+	public void auto(FCommand slogin) {
+		this.sLoginCommand = slogin;
+	}
+	
 	String viewpage = null;
 	//-------------------------
 	
@@ -394,8 +401,9 @@ public class HomeController {
 			
 			System.out.println("slogin()");
 			model.addAttribute("request", request);
-			command = new SLoginCommand();
-			command.execute(sqlSession, model);
+//			command = new SLoginCommand();
+//			command.execute(sqlSession, model);
+			sLoginCommand.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}

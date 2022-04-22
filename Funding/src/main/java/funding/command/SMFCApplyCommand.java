@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import funding.dao.FDaoS;
+import funding.dao.FDaoSeller;
 import funding.dto.FDtoFunding;
 
 public class SMFCApplyCommand implements FCommand {
@@ -21,9 +21,9 @@ public class SMFCApplyCommand implements FCommand {
 		String funding_num = request.getParameter("funding_num");
 		//String funding_seller = request.getParameter(funding_num);
 		
-		FDaoS daoS = new FDaoS();
-		FDtoFunding dto = daoS.calfunding(funding_num);
-		String result = daoS.calinf(funding_num);
+		FDaoSeller daoSeller = sqlSession.getMapper(FDaoSeller.class);
+		FDtoFunding dto = daoSeller.calfunding(funding_num);
+		String result = daoSeller.calinf(funding_num);
 		request.setAttribute("funding", dto);
 		request.setAttribute("cal", result);
 	
