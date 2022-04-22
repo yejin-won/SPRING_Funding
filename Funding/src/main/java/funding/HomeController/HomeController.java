@@ -114,8 +114,8 @@ public class HomeController {
 	}
 	
 	
-	//---------------------CUSTOMER START-----------------------------
-	//CUSTOMER Sign In/Out & Log In
+		//---------------------CUSTOMER START-----------------------------
+		//CUSTOMER Sign In/Out & Log In
 		@RequestMapping("/login")
 		public String login(HttpServletRequest request, Model model) {
 			System.out.println("login()");
