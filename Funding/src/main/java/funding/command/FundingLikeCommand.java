@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoC;
@@ -14,7 +15,7 @@ import funding.dao.FDaoC;
 public class FundingLikeCommand implements FCommand {
 
 	@Override
-	public void execute(Model model) {
+	public void execute(SqlSession sqlSession, Model model) {
 		// TODO Auto-generated method stub
 		
 		Map<String, Object> map = model.asMap();
