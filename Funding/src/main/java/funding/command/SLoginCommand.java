@@ -19,13 +19,14 @@ public class SLoginCommand implements FCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request =(HttpServletRequest) map.get("request");
 		
-		String id = request.getParameter("seller_id");
-		String pw = request.getParameter("seller_pw");
+//		String id = request.getParameter("seller_id");
+//		String pw = request.getParameter("seller_pw");
 //		FDaoS daoS = new FDaoS();
 		FDaoSeller daoSeller = sqlSession.getMapper(FDaoSeller.class);
 		
 		
-		String seller_id = daoSeller.slogin(id,pw);
+		String seller_id = daoSeller.slogin(request.getParameter("seller_id")
+				, request.getParameter("seller_pw"));
 		if(seller_id != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", seller_id);

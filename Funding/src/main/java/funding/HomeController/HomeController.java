@@ -52,7 +52,7 @@ import funding.command.FundingdetailCommand;
 import funding.command.LeaveCommand;
 import funding.command.LoginCommand;
 import funding.command.LogoutCommand;
-import funding.command.MainCommand;
+//import funding.command.MainCommand;
 import funding.command.MyOrderDetailCommand;
 import funding.command.MyinformationModifyCommand;
 import funding.command.MypageCommand;
@@ -62,8 +62,8 @@ import funding.command.NoticeSearchCommand;
 //SELLER
 import funding.command.SFAnswerCommand;
 import funding.command.SFOApplyCommand;
-import funding.command.SLoginCommand;
-import funding.command.SLogoutCommand;
+//import funding.command.SLoginCommand;
+//import funding.command.SLogoutCommand;
 import funding.command.SMFCApplyCommand;
 import funding.command.SMFCApplyDetailCommand;
 import funding.command.SMFCApplyViewCommand;
@@ -94,10 +94,14 @@ public class HomeController {
 	
 	FCommand command = null;
 	private FCommand sLoginCommand = null;
+	private FCommand slogoutCommand = null;
+	private FCommand mainCommand = null;
 	
 	@Autowired
-	public void auto(FCommand slogin) {
-		this.sLoginCommand = slogin;
+	public void auto(FCommand Slogin, FCommand Slogout, FCommand Main) {
+		this.sLoginCommand = Slogin;
+		this.slogoutCommand = Slogout;
+		this.mainCommand = Main;
 	}
 	
 	String viewpage = null;
@@ -168,9 +172,10 @@ public class HomeController {
 			System.out.println("mainscreen()");
 			
 			model.addAttribute("request", request);
-			command = new MainCommand();
-			command.execute(sqlSession, model);
-		
+//			command = new MainCommand();
+//			command.execute(sqlSession, model);
+			mainCommand.execute(sqlSession, model);
+			
 			return "main";
 		}
 
@@ -412,8 +417,9 @@ public class HomeController {
 		public String slogout(HttpServletRequest request, Model model) {
 			System.out.println("slogout()");
 			model.addAttribute("request", request);
-			command = new SLogoutCommand();
-			command.execute(sqlSession, model);
+//			command = new SLogoutCommand();
+//			command.execute(sqlSession, model);
+			slogoutCommand.execute(sqlSession, model);
 			
 			return "../../pages/slogin";
 		}
