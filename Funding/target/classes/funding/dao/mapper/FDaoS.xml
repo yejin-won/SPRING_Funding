@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="funding.dao.FDaoSeller">
+	
+	<!-- For SELLER -->
+	<!-- Login/out & Sign-up -->
+	<insert id="ssignUp">
+		INSERT INTO SELLER (SELLER_ID, SELLER_PW, SELLER_NUMBER, SELLER_PROFILE, SELLER_NAME
+		, SELLER_PHONE, SELLER_PERSON_NAME, SELLER_PERSON_PHONE, SELLER_STATE) 
+		VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}
+		, #{param8}, '승인대기')
+	</insert>
+	<select id="duplecateID">
+		SELECT SELLER_PW FROM SELLER WHERE SELLER_ID = #{param1}
+	</select>
+	<select id="checkDuplicateId">
+		SELECT S.SELLER_ID, C.CUSTOMER_ID FROM SELLER S, CUSTOMER C 
+		WHERE C.CUSTOMER_ID = #{param1} OR S.SELLER_ID = #{param2}
+	</select>
+	<insert id="address">
+		INSERT INTO ADDRESS (ADDRESS_SELLER, ADDRESS_STATE, ADDRESS_CITY, ADDRESS_LINE) 
+		VALUES (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<select id="slogin">
+		SELECT SELLER_ID FROM SELLER WHERE SELLER_ID = #{param1} AND SELLER_PW = #{param2}
+	</select>
+	
+	<!-- Functions -->
+	<select id="sFOapply">
+		SELECT S.SELLER_NAME, S.SELLER_NUMBER, S.SELLER_PERSON_NAME, S.SELLER_PERSON_PHONE
+		, A.ADDRESS_STATE, A.ADDRESS_CITY, A.ADDRESS_LINE 
+		FROM SELLER S, ADDRESS A " + "WHERE S.SELLER_ID = A.ADDRESS_SELLER
+	</select>
+	<select id="list">
+		SELECT CALCULATE_FUNDING, CALCULATE_SELLER, CALCULATE_ADMIN, CALCULATE_COST
+		, CALCULATE_CREATEAT, CALCULATE_APPROVEAT, CALCULATE_STATE FROM CALCULATE 
+		WHERE CALCULATE_SELLER = #{param1} AND CALCULATE_FUNDING = #{param2}
+	</select>
+	<insert id="sMFCapply">
+		INSERT INTO CALCULATE (CALCULATE_FUNDING, CALCULATE_SELLER, CALCULATE_ADMIN
+		, CALCULATE_COST, CALCULATE_CREATEAT, CALCULATE_STATE)
+		VALUES(#{param1},#{param2},'admin@admin.com',(SELECT SUM(ORDER_PRICE * ORDER_COUNT)
+		FROM ORDER1 O ,CALCULATE C
+		WHERE O.ORDER_FUNDING = C.CALCULATE_FUNDING GROUP BY O.ORDER_FUNDING) ,now(),'정산대기')
+	</insert>
+	<select id="Mfunding_list">
+		SELECT FUNDING_NUM, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT
+		,FUNDING_STATE FROM FUNDING WHERE FUNDING_SELLER = #{param1}
+	</select>
+	<select id="selectDetail">
+		SELECT FUNDING_NUM, FUNDING_BANNER, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT
+		, FUNDING_PURPOSE, FUNDING_FEE FROM FUNDING 
+		WHERE FUNDING_NUM = #{param1}
+	</select>
+	<select id="selectOption">
+		SELECT OPTION_NUM, OPTION_NAME, OPTION_PRICE, OPTION_AMOUNT 
+		FROM FUNDING_OPTION WHERE OPTION_FUNDING = #{param1}
+	</select>
+	<select id="selectDetail1">
+		SELECT CONTENT_CONTENT FROM FUNDING_CONTENT FC INNER JOIN FUNDING F 
+		ON FC.CONTENT_FUNDINGAND F.FUNDING_NUM = #{param1}
+	</select>
+	<update id="modifySelectDetail">
+		UPDATE FUNDING SET FUNDING_BANNER = #{param1}, FUNDING_TITLE = #{param2}
+		, FUNDING_OPENAT = #{param3}, FUNDING_CLOSEAT = #{param4}
+		, FUNDING_PURPOSE = #{param5}, FUNDING_FEE = #{param6} WHERE FUNDING_NUM = #{param7}
+	</update>
+	<update id="modifySelectDetail1">
+		UPDATE funding_option SET option_ name= #{param1}, option_price = #{param2}
+		, option_amount = #{param3} Where option_funding = #{param4}
+	</update>
+	<update id="modifySelectDetail2">
+		UPDATE FUNDING_CONTENT SET CONTENT_CONTENT = #{param1} WHERE CONTENT_FUNDING = #{param2}
+	</update>
+	<delete id="deleteSelectDetail">
+		DELETE FROM funding WHERE funding_num = #{param1}
+	</delete>
+	<select id="FQuestion_list">
+		SELECT QUESTION_NUM, QUESTION_CUSTOMER, QUESTION_CONTENT, QUESTION_AT, QUESTION_STATE
+		, (SELECT FUNDING_TITLE FROM FUNDING F WHERE F.FUNDING_NUM = Q.QUESTION_NUM)
+		FROM FUNDING_QUESTION Q WHERE QUESTION_NUM = #{param1}
+	</select>
+	<update id="FAnswer_Update">
+		UPDATE FUNDING_QUESTION SET QUESTION_STATE = '답변완료' , QUESTION_ANSWER = #{param1} 
+		, QUESTION_ANSWER_AT = now() WHERE QUESTION_NUM = #{param2}
+	</update>
+	<insert id="fundingDataInsert">
+		INSERT INTO FUNDING (FUNDING_SELLER, FUNDING_BANNER, FUNDING_TITLE, FUNDING_OPENAT
+		, FUNDING_CLOSEAT, FUNDING_PURPOSE, FUNDING_FEE, FUNDING_STATE) 
+		VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7},'대기')
+	</insert>
+	<select id="funding_num">
+		SELECT FUNDING_NUM FROM FUNDING WHERE FUNDING_TITLE = #{param1}
+	</select>
+	<insert id="optionDataInsert">
+		INSERT INTO FUNDING_OPTION (OPTION_NUMBERING, OPTION_NAME, OPTION_PRICE, OPTION_AMOUNT
+		, OPTION_FUNDING) VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5})
+	</insert>
+	<insert id="fundingContentInsert">
+		INSERT INTO FUNDING_CONTENT (CONTENT_FUNDING, CONTENT_CONTENT) VALUES(#{param1}, #{param2})
+	</insert>
+	<update id="update_infor">
+		UPDATE SELLER SET SELLER_PW = #{param1}, seller_phone = #{param2} WHERE SELLER_ID = #{param3}
+	</update>
+	<select id="myfq">
+		SELECT (SELECT FUNDING_TITLE FROM FUNDING F WHERE F.FUNDING_NUM = Q.QUESTION_FUNDING)
+		, QUESTION_NUM, QUESTION_FUNDING, QUESTION_CONTENT, QUESTION_AT, QUESTION_STATE 
+		 FROM FUNDING_QUESTION Q WHERE QUESTION_SELLER = #{param1} ORDER BY QUESTION_FUNDING
+	</select>
+	<select id="calfunding">
+		SELECT FUNDING_NUM, FUNDING_TITLE
+		, (SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM) AS TOTAL
+		FROM FUNDING F WHERE FUNDING_NUM = #{param1}
+	</select>
+	<select id="calinf">
+		select c.calculate_state from calculate c, funding f
+		where f.funding_num = #{param1}
+	</select>
+</mapper>
