@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
-import funding.dao.FDaoSeller;
+import funding.dao.FDaoS;
 
 public class SLoginCommand implements FCommand {
 
@@ -22,7 +22,7 @@ public class SLoginCommand implements FCommand {
 //		String id = request.getParameter("seller_id");
 //		String pw = request.getParameter("seller_pw");
 //		FDaoS daoS = new FDaoS();
-		FDaoSeller daoSeller = sqlSession.getMapper(FDaoSeller.class);
+		FDaoS daoSeller = sqlSession.getMapper(FDaoS.class);
 		
 		
 		String seller_id = daoSeller.slogin(request.getParameter("seller_id")

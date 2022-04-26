@@ -19,7 +19,7 @@ public class SMFDetailDeleteCommand implements FCommand {
 				
 		// TODO Auto-generated method stub
 		String funding_num =request.getParameter("funding_num");
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		System.out.println(funding_num);
 		daoS.deleteSelectDetail(funding_num);

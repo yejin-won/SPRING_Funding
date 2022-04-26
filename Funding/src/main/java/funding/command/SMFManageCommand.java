@@ -22,7 +22,7 @@ public class SMFManageCommand implements FCommand {
 		
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		ArrayList<FDtoFunding> list = daoS.Mfunding_list(id);
 		
 		request.setAttribute("Mfunding", list);

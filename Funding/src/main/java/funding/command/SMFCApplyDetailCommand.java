@@ -25,7 +25,7 @@ public class SMFCApplyDetailCommand implements FCommand {
 		String seller = (String) session.getAttribute("id");
 		String fNum = request.getParameter("calculate_funding");
 		
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		FDtoCalculate dtos = daoS.list(fNum, seller);
 		request.setAttribute("list", dtos);

@@ -18,7 +18,7 @@ public class SMFDetailModifyCommand implements FCommand {
 		
 		// TODO Auto-generated method stub
 		String funding_num =request.getParameter("funding_num");
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		String banner = request.getParameter("funding_banner");
 		String title= request.getParameter("funding_title");

@@ -36,7 +36,7 @@ public class SSignUpCommand implements FCommand {
 		String address_city = request.getParameter("address2");
 		String address_line = request.getParameter("address3");
 		
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		daoS.ssignUp(seller_id, seller_pw, seller_number, seller_profile, seller_name, seller_phone, 
 				seller_person_name, seller_person_phone);
 		daoS.address(address_seller, address_state, address_city, address_line);

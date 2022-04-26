@@ -19,7 +19,7 @@ public class SFADetailCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String question_num = request.getParameter("question_num");
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		FDtoFundingQuestion dtosFQ = daoS.FQuestion_list(question_num);
 		request.setAttribute("FAnswer_detail", dtosFQ);
 	}

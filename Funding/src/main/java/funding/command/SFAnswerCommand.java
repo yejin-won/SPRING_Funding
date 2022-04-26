@@ -21,7 +21,7 @@ public class SFAnswerCommand implements FCommand {
 		String answer_content = request.getParameter("answer_content");
 		String question_num = request.getParameter("question_num");
 		
-		FDaoS dao = new FDaoS();
+		FDaoS dao = sqlSession.getMapper(FDaoS.class);
 		dao.FAnswer_Update(question_num, answer_content);
 		
 		String viewpage = "sFADetail.do?question_num="+question_num;

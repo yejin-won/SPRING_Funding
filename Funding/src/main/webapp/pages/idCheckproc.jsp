@@ -1,4 +1,5 @@
 <%@page import="funding.dao.FDaoS"%>
+<%-- <%@ page import="Funding.dao.FDaoS"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,14 +10,15 @@
 </head>
 <div style="text-align: center"></div> 
 <h3>* 아이디 중복 확인 결과 *</h3> 
-<% 
-	String id=request.getParameter("id"); 
-	FDaoS daoS = new FDaoS();
-	boolean id_check=daoS.checkDuplicateId(id);
-	int cnt =0;
-	out.println("입력 ID : <strong>" + id + "</stong>"); 
-	if(id_check==true){ out.println("<p>사용 가능한 아이디입니다.</p>"); 
-	out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>"); %> 
+<%
+ String id=request.getParameter("id"); 
+ 	FDaoS daoS = new FDaoS();
+ 	boolean id_check=daoS.checkDuplicateId(id);
+ 	int cnt =0;
+ 	out.println("입력 ID : <strong>" + id + "</stong>"); 
+ 	if(id_check==true){ out.println("<p>사용 가능한 아이디입니다.</p>"); 
+ 	out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>");
+ %> 
 	<script> 
 	function apply(id){
 		alert("apply");

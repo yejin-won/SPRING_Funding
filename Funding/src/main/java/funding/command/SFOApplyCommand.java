@@ -38,7 +38,7 @@ public class SFOApplyCommand implements FCommand {
 
 		// funding data insert
 
-		FDaoS dao = new FDaoS();
+		FDaoS dao = sqlSession.getMapper(FDaoS.class);
 
 		dao.fundingDataInsert(funding_seller, funding_banner, funding_title, funding_openAt, funding_closeAt,
 				funding_purpose, funding_fee);

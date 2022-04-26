@@ -24,7 +24,7 @@ public class SMyinformationModifyCommand implements FCommand {
 		String pw = request.getParameter("customer_pw");
 		String phone = request.getParameter("phone");
 		
-		FDaoS dao = new FDaoS();
+		FDaoS dao = sqlSession.getMapper(FDaoS.class);
 		FDaoC daoc = new FDaoC();
 		dao.update_infor(id, pw, phone);
 		daoc.update_infor(id, pw, phone);

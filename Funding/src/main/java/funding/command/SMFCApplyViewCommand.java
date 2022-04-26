@@ -23,7 +23,7 @@ public class SMFCApplyViewCommand implements FCommand {
 		String seller = (String)session.getAttribute("id");
 		String fNum = request.getParameter("calculate_funding");
 		
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		daoS.sMFCapply(fNum,seller);
 		System.out.println("seller: "+seller);
 		System.out.println("fNum: "+fNum);

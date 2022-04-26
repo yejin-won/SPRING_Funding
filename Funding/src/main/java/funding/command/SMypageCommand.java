@@ -36,7 +36,7 @@ public class SMypageCommand implements FCommand {
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		FDaoS daoS = new FDaoS();
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		FDaoC dao = new FDaoC();
 		
 		
