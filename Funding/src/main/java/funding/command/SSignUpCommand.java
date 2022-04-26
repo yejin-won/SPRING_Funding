@@ -41,7 +41,7 @@ public class SSignUpCommand implements FCommand {
 				seller_person_name, seller_person_phone);
 		daoS.address(address_seller, address_state, address_city, address_line);
 		
-		FDaoC daoC = new FDaoC();
+		FDaoC daoC = sqlSession.getMapper(FDaoC.class);
 		daoC.signUp(seller_id, seller_pw, seller_name, seller_phone, null, null);
 		
 		

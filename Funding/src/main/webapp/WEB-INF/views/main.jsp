@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>해피펀딩</title>
-<link rel="stylesheet" href="./styles/init.css">
-<link rel="stylesheet" href="./styles/base.css">
-<link rel="stylesheet" href="./styles/fundingCards.css">
-<script type="text/javascript" src="/Funding/libraries/moment.js"></script>
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
+<link rel="stylesheet" href="resources/fundingCards.css">
+<script type="text/javascript" src="resources/moment.js"></script>
 <style>
 .loadMore {
 	width: 100%;

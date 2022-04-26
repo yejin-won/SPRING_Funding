@@ -28,7 +28,7 @@ public class SignupCommand implements FCommand {
 		String pw_q = request.getParameter("pw_q");
 		String pw_a = request.getParameter("pw_a").trim();
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		dao.signUp(id, pw, name, phone, pw_q, pw_a);
 		dao.addAddress(id, addrees1, addrees2, addrees3);
 	}

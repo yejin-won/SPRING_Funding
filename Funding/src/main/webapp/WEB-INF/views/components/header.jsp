@@ -85,7 +85,7 @@ header {
 	</div>
 
 </header>
-<script src="/Funding/libraries/jQuery.js"></script>
+<script src="resources/jQuery.js"></script>
 <script>
 let header = document.querySelector(".header");
 let headerHeight = 72;

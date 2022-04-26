@@ -19,7 +19,7 @@ public class SystemQuestionSearchCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		String search = request.getParameter("question_search");
-		FDaoC dao = new FDaoC();
+		FDaoC dao =sqlSession.getMapper(FDaoC.class);
 		ArrayList<FDtoSystemQuestion> list = dao.systemquestion_search(search);
 		
 		request.setAttribute("question", list);

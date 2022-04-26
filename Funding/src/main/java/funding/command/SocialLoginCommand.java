@@ -21,7 +21,7 @@ public class SocialLoginCommand implements FCommand {
 		
 		String input_id = request.getParameter("email");
 		HttpSession session = request.getSession();
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		Boolean res = dao.checkEmail(input_id);
 		
 		
