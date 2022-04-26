@@ -22,7 +22,7 @@ public class FundingQuestionCommand implements FCommand {
 		String id = (String) session.getAttribute("id");
 		String question_content = request.getParameter("question_content");
 		String question_funding = request.getParameter("question_funding");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		dao.question_create(question_funding, id, question_content);
 		String viewpage = "fundingContent_view.do?fid="+question_funding+"&tab=3";
 		request.setAttribute("viewpage", viewpage);

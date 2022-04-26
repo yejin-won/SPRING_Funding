@@ -36,7 +36,7 @@ public class MypageCommand implements FCommand {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		int myFundingCount = dao.myFundingCount(id);
 		int myLikeCount = dao.myLikeCount(id);
 		int mySystemQuestionCount = dao.mySystemQuestionCount(id);

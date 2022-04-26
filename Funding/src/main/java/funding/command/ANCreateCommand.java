@@ -28,7 +28,7 @@ public class ANCreateCommand implements FCommand {
 		String notice_content = request.getParameter("notice_content");
 		
 		
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
 		daoA.anoticecreate(notice_admin, notice_title, notice_content);
 

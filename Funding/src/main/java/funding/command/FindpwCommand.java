@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoC;
+import funding.dao.FDaoS;
 
 public class FindpwCommand implements FCommand {
 
@@ -21,7 +22,7 @@ public class FindpwCommand implements FCommand {
 		String id = request.getParameter("id").trim();
 		String pw_q = request.getParameter("pw_q").trim();
 		String pw_a = request.getParameter("pw_a").trim();
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String customer_pw = dao.findpw(id,pw_q, pw_a);
 		if(customer_pw!=null) {
 			request.setAttribute("customer_pw", customer_pw);

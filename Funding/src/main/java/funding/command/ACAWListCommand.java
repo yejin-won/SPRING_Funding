@@ -25,7 +25,7 @@ public class ACAWListCommand implements FCommand {
 		Object adminID = session.getAttribute("adminId");
 		String adminId = (String)adminID;
 		
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		ArrayList<FDtoCalculate> dtos = daoA.calapprovewaitlist();
 		request.setAttribute("calapprovewaitlist", dtos);
 		

@@ -23,7 +23,7 @@ public class ASrejectCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		String sellerId = request.getParameter("sellerId");
-		FDaoA dao = new FDaoA();
+		FDaoA dao = sqlSession.getMapper(FDaoA.class);
 		dao.sellerreject(sellerId);
 		
 	}

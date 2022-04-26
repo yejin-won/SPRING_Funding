@@ -169,12 +169,12 @@ public class HomeController {
 
 		@RequestMapping("/main")
 		public String mainscreen(HttpServletRequest request, Model model) {
-			//sSystem.out.println("mainscreen()");
+			System.out.println("mainscreen()");
 			
-			//model.addAttribute("request", request);
+			model.addAttribute("request", request);
 //			command = new MainCommand();
 //			command.execute(sqlSession, model);
-			//mainCommand.execute(sqlSession, model);
+			mainCommand.execute(sqlSession, model);
 			
 			return "main";
 		}

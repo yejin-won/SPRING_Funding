@@ -22,10 +22,10 @@ public class SLoginCommand implements FCommand {
 //		String id = request.getParameter("seller_id");
 //		String pw = request.getParameter("seller_pw");
 //		FDaoS daoS = new FDaoS();
-		FDaoS daoSeller = sqlSession.getMapper(FDaoS.class);
+		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		
-		String seller_id = daoSeller.slogin(request.getParameter("seller_id")
+		String seller_id = daoS.slogin(request.getParameter("seller_id")
 				, request.getParameter("seller_pw"));
 		if(seller_id != null) {
 			HttpSession session = request.getSession();

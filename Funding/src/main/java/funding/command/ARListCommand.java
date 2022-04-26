@@ -30,7 +30,7 @@ public class ARListCommand implements FCommand {
 		System.out.println(queryName);
 		System.out.println(queryContent);
 		
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
 		//�뙋留ㅼ옄 �듅�씤 ��湲� 由ъ뒪�
 		//ArrayList<FDtoC> dtos = daoA.clist(adminId);

@@ -20,7 +20,7 @@ public class SearchCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String search = request.getParameter("funding_search");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		ArrayList<FDtoFunding> list = dao.fundingsearch(search);
 		request.setAttribute("funding", list);
 	}

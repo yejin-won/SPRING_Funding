@@ -25,7 +25,7 @@ public class MyOrderDetailCommand implements FCommand {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		String funding_num = request.getParameter("funding_num");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		FDtoFunding dto = dao.myorder_funding(funding_num);
 		ArrayList<FDtoOrder> list = dao.myorder_ordering(funding_num, id);
 		

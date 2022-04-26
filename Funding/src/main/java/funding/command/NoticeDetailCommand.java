@@ -19,7 +19,7 @@ public class NoticeDetailCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String notice_num = request.getParameter("notice_num");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		FDtoNotice dto = dao.notice_detail(notice_num);
 		
 		request.setAttribute("notice", dto);

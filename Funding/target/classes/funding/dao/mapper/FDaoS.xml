@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="funding.dao.FDaS">
+<mapper namespace="funding.dao.FDaoS">
 	
 	<!-- For SELLER -->
 	<!-- Login/out & Sign-up -->
@@ -12,7 +12,7 @@
 		VALUES (#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}
 		, #{param8}, '승인대기')
 	</insert>
-	<select id="duplecateID">
+	<select id="duplecateID" resultType="funding.dto.FDtoS">
 		SELECT SELLER_PW FROM SELLER WHERE SELLER_ID = #{param1}
 	</select>
 	<select id="checkDuplicateId">

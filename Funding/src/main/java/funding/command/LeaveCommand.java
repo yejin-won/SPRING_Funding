@@ -21,7 +21,7 @@ public class LeaveCommand implements FCommand {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		dao.leave(id);
 		session.invalidate();
 	}

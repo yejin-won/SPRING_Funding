@@ -20,7 +20,7 @@ public class ALoginCommand implements FCommand {
 		
 		String aid = request.getParameter("adminId");
 		String apw = request.getParameter("adminPw");
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
 		
 

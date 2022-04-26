@@ -27,7 +27,7 @@ public class FundingPaymentCommand implements FCommand {
 		
 		
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		
 		if (request.getParameter("order_option0") != null) {
 			

@@ -25,7 +25,7 @@ public class AFADetailCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		String fundingNum = request.getParameter("fundingNum");
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		ArrayList<FDtoFunding> dtos = daoA.fundingdetail(fundingNum);
 		request.setAttribute("fundingdetail", dtos);
 	}

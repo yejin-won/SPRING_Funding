@@ -22,7 +22,7 @@ public class LoginCommand implements FCommand {
 		String input_id = request.getParameter("customer_id").trim();
 		String input_pw = request.getParameter("customer_pw").trim();
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String customer_id = dao.login(input_id, input_pw);
 		
 		if(customer_id!=null) {

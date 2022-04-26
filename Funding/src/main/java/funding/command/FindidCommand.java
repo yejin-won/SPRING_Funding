@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoC;
+import funding.dao.FDaoS;
 
 public class FindidCommand implements FCommand {
 
@@ -21,7 +22,7 @@ public class FindidCommand implements FCommand {
 		String name = request.getParameter("name").trim();
 		String phone = request.getParameter("phone1").trim()+"-"+request.getParameter("phone2").trim()+
 				"-"+request.getParameter("phone3").trim();
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String customer_id = dao.findId(name, phone);
 		if(customer_id!=null) {
 			request.setAttribute("customer_id", customer_id);

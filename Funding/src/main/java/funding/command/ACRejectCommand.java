@@ -25,7 +25,7 @@ public class ACRejectCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		String calNum = request.getParameter("calNum");
-		FDaoA dao = new FDaoA();
+		FDaoA dao = sqlSession.getMapper(FDaoA.class);
 		FDtoCalculate dto = dao.calreject(calNum);
 	}
 

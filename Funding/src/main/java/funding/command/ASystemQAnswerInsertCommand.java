@@ -27,7 +27,7 @@ public class ASystemQAnswerInsertCommand implements FCommand {
 		String question_answer = request.getParameter("question_answer");
 		String question_num =  request.getParameter("question_num");
 
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
 		daoA.SystemQAnswerInsert(question_answer, question_num);
 	}

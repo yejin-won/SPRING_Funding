@@ -29,7 +29,7 @@ public class ANModifyCommand implements FCommand {
 		String notice_At_String = request.getParameter("notice_At");
 		Timestamp notice_At = Timestamp.valueOf(notice_At_String);
 		
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		daoA.anoticemodify(notice_num, notice_title, notice_content, notice_At);
 		
 	}

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoC;
+import funding.dao.FDaoS;
 import funding.dto.FDtoFunding;
 import funding.dto.FDtoFundingOption;
 import funding.dto.FDtoFundingQuestion;
@@ -33,7 +34,7 @@ public class FundingdetailCommand implements FCommand {
 		HttpSession session = request.getSession();
 		String funding_num  =request.getParameter("fid");
 		String email = (String) session.getAttribute("email");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		
 		int hits = dao.select_hits(funding_num);
 		hits++;

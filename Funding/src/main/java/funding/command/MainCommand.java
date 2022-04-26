@@ -19,7 +19,7 @@ public class MainCommand implements FCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String query = null;
 		String sort = request.getParameter("sort");
 		if(request.getParameter("sort")==null) sort = "all";

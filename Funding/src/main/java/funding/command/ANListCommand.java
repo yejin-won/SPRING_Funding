@@ -25,7 +25,7 @@ public class ANListCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		
-		FDaoA dao = new FDaoA();
+		FDaoA dao = sqlSession.getMapper(FDaoA.class);
 		ArrayList<FDtoNotice> dtos = dao.anotice_list();
 		request.setAttribute("anotice_list", dtos);
 		

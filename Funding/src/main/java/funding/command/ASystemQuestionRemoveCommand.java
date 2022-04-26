@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoA;
+import funding.dao.FDaoC;
 
 public class ASystemQuestionRemoveCommand implements FCommand {
 
@@ -25,7 +26,7 @@ public class ASystemQuestionRemoveCommand implements FCommand {
 		
 		
 		String question_num = request.getParameter("question_num");
-		FDaoA daoA = new FDaoA();
+		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		daoA.SystemQuestionRemove(question_num);
 
 	}

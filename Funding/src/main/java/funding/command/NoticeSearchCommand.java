@@ -20,7 +20,7 @@ public class NoticeSearchCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String search = request.getParameter("notice_search");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		ArrayList<FDtoNotice> list = dao.notice_search(search);
 		
 		request.setAttribute("notice", list);
