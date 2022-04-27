@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import funding.dao.FDaoS;
@@ -15,18 +16,19 @@ public class SLoginCommand implements FCommand {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		// TODO Auto-generated method stub
-
+		
+		
+		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request =(HttpServletRequest) map.get("request");
 		
-//		String id = request.getParameter("seller_id");
-//		String pw = request.getParameter("seller_pw");
+		String id = request.getParameter("seller_id");
+		String pw = request.getParameter("seller_pw");
 //		FDaoS daoS = new FDaoS();
 		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		
-		String seller_id = daoS.slogin(request.getParameter("seller_id")
-				, request.getParameter("seller_pw"));
+		String seller_id = daoS.slogin(id,pw);
 		if(seller_id != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", seller_id);
