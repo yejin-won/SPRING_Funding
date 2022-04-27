@@ -35,8 +35,8 @@
 	<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
-	<beans:bean name ="Slogin" class="funding.command.SLoginCommand"></beans:bean>
-	<beans:bean name ="Slogout" class="funding.command.SLogoutCommand"></beans:bean>
-	<beans:bean name ="Main" class="funding.command.MainCommand"></beans:bean>
+	<beans:bean name ="slogin" class="funding.command.SLoginCommand"></beans:bean>
+	<beans:bean name ="slogout" class="funding.command.SLogoutCommand"></beans:bean>
+	<beans:bean name ="main" class="funding.command.MainCommand"></beans:bean>
 
 </beans:beans>

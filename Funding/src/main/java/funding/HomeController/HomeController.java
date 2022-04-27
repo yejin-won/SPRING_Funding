@@ -93,15 +93,15 @@ public class HomeController {
 	
 	
 	FCommand command = null;
-	private FCommand sLoginCommand = null;
+	private FCommand sloginCommand = null;
 	private FCommand slogoutCommand = null;
 	private FCommand mainCommand = null;
 	
 	@Autowired
-	public void auto(FCommand Slogin, FCommand Slogout, FCommand Main) {
-		this.sLoginCommand = Slogin;
-		this.slogoutCommand = Slogout;
-		this.mainCommand = Main;
+	public void auto(FCommand slogin, FCommand slogout, FCommand main) {
+		this.sloginCommand = slogin;
+		this.slogoutCommand = slogout;
+		this.mainCommand = main;
 	}
 	
 	String viewpage = null;
@@ -408,7 +408,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 //			command = new SLoginCommand();
 //			command.execute(sqlSession, model);
-			sLoginCommand.execute(sqlSession, model);
+			sloginCommand.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
