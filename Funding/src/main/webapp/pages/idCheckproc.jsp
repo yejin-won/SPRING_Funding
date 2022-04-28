@@ -1,5 +1,5 @@
+<%@page import="org.apache.ibatis.session.SqlSession"%>
 <%@page import="funding.dao.FDaoS"%>
-<%-- <%@ page import="Funding.dao.FDaoS"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,8 +11,9 @@
 <div style="text-align: center"></div> 
 <h3>* 아이디 중복 확인 결과 *</h3> 
 <%
- String id=request.getParameter("id"); 
- 	FDaoS daoS = new FDaoS();
+ 	SqlSession sqlSession = null;
+	String id=request.getParameter("id"); 
+ 	FDaoS daoS = sqlSession.getMapper(FDaoS.class);
  	boolean id_check=daoS.checkDuplicateId(id);
  	int cnt =0;
  	out.println("입력 ID : <strong>" + id + "</stong>"); 
