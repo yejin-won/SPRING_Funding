@@ -39,5 +39,4 @@
 	<beans:bean name ="slogout" class="funding.command.SLogoutCommand"></beans:bean>
 	<beans:bean name ="main" class="funding.command.MainCommand"></beans:bean>
 
-	<beans:bean name="daoS" class="funding.dao.FDaoS"></beans:bean>
 </beans:beans> 
