@@ -247,7 +247,7 @@ background-position
 		<div class="signIn__content">
 			<h1 class="signIn__title">판매자 로그인</h1>
 			<div class="signIn__divider"></div>
-			<form action="/Funding/slogin.do" name="signInForm" method="post"
+			<form action="slogin" name="signInForm" method="post"
 				onsubmit="checkCheck()">
 				<div class="signIn__liner">
 					<p class="signIn__subTitle">아이디</p>

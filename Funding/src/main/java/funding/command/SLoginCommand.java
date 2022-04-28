@@ -27,7 +27,7 @@ public class SLoginCommand implements FCommand {
 		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		
-		String seller_id = daoS.slogin(id,pw);
+		String seller_id = daoS.slogin((String)id,(String)pw);
 		if(seller_id != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", seller_id);
