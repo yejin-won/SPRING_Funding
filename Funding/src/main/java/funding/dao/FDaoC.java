@@ -40,14 +40,11 @@ public class FDaoC {
 			preparedstatement = connection.prepareStatement(query);
 			preparedstatement.setString(1, id);
 			preparedstatement.executeUpdate();
-			
 			if (preparedstatement != null) preparedstatement.close();
-			
 			query = "DELETE FROM customer WHERE customer_id = ?";
 			preparedstatement = connection.prepareStatement(query);
 			preparedstatement.setString(1, id);
-			preparedstatement.executeUpdate();
-			
+			preparedstatement.executeUpdate();			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
