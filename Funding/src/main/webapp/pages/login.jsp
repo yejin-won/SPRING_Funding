@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>해피펀딩 로그인</title>
-<link rel="stylesheet" href="../styles/init.css">
+<link rel="stylesheet" href="resource/init.css">
 <style type="text/css">
 html {
 	height: 100%;
