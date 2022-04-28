@@ -15,7 +15,7 @@
 	<select id="duplecateID" resultType="funding.dto.FDtoS">
 		SELECT SELLER_PW FROM SELLER WHERE SELLER_ID = #{param1}
 	</select>
-	<select id="checkDuplicateId">
+	<select id="checkDuplicateId" resultType="funding.dto.FDtoS">
 		SELECT S.SELLER_ID, C.CUSTOMER_ID FROM SELLER S, CUSTOMER C 
 		WHERE C.CUSTOMER_ID = #{param1} OR S.SELLER_ID = #{param2}
 	</select>
@@ -28,12 +28,12 @@
 	</select>
 	
 	<!-- Functions -->
-	<select id="sFOapply">
+	<select id="sFOapply" resultType="funding.dto.FDtoS">
 		SELECT S.SELLER_NAME, S.SELLER_NUMBER, S.SELLER_PERSON_NAME, S.SELLER_PERSON_PHONE
 		, A.ADDRESS_STATE, A.ADDRESS_CITY, A.ADDRESS_LINE 
 		FROM SELLER S, ADDRESS A " + "WHERE S.SELLER_ID = A.ADDRESS_SELLER
 	</select>
-	<select id="list">
+	<select id="list" resultType="funding.dto.FDtoCalculate">
 		SELECT CALCULATE_FUNDING, CALCULATE_SELLER, CALCULATE_ADMIN, CALCULATE_COST
 		, CALCULATE_CREATEAT, CALCULATE_APPROVEAT, CALCULATE_STATE FROM CALCULATE 
 		WHERE CALCULATE_SELLER = #{param1} AND CALCULATE_FUNDING = #{param2}
@@ -45,20 +45,20 @@
 		FROM ORDER1 O ,CALCULATE C
 		WHERE O.ORDER_FUNDING = C.CALCULATE_FUNDING GROUP BY O.ORDER_FUNDING) ,now(),'정산대기')
 	</insert>
-	<select id="Mfunding_list">
+	<select id="Mfunding_list" resultType="funding.dto.FDtoFunding">
 		SELECT FUNDING_NUM, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT
 		,FUNDING_STATE FROM FUNDING WHERE FUNDING_SELLER = #{param1}
 	</select>
-	<select id="selectDetail">
+	<select id="selectDetail" resultType="funding.dto.FDtoFunding">
 		SELECT FUNDING_NUM, FUNDING_BANNER, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT
 		, FUNDING_PURPOSE, FUNDING_FEE FROM FUNDING 
 		WHERE FUNDING_NUM = #{param1}
 	</select>
-	<select id="selectOption">
+	<select id="selectOption" resultType="funding.dto.FDtoOrder">
 		SELECT OPTION_NUM, OPTION_NAME, OPTION_PRICE, OPTION_AMOUNT 
 		FROM FUNDING_OPTION WHERE OPTION_FUNDING = #{param1}
 	</select>
-	<select id="selectDetail1">
+	<select id="selectDetail1" resultType="funding.dto.FDtoFundingContent">
 		SELECT CONTENT_CONTENT FROM FUNDING_CONTENT FC INNER JOIN FUNDING F 
 		ON FC.CONTENT_FUNDINGAND F.FUNDING_NUM = #{param1}
 	</select>
@@ -77,7 +77,7 @@
 	<delete id="deleteSelectDetail">
 		DELETE FROM funding WHERE funding_num = #{param1}
 	</delete>
-	<select id="FQuestion_list">
+	<select id="FQuestion_list" resultType="funding.dto.FDtoFundingQuestion">
 		SELECT QUESTION_NUM, QUESTION_CUSTOMER, QUESTION_CONTENT, QUESTION_AT, QUESTION_STATE
 		, (SELECT FUNDING_TITLE FROM FUNDING F WHERE F.FUNDING_NUM = Q.QUESTION_NUM)
 		FROM FUNDING_QUESTION Q WHERE QUESTION_NUM = #{param1}
@@ -91,7 +91,7 @@
 		, FUNDING_CLOSEAT, FUNDING_PURPOSE, FUNDING_FEE, FUNDING_STATE) 
 		VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7},'대기')
 	</insert>
-	<select id="funding_num">
+	<select id="funding_num" resultType="funding.dto.FDtoFunding">
 		SELECT FUNDING_NUM FROM FUNDING WHERE FUNDING_TITLE = #{param1}
 	</select>
 	<insert id="optionDataInsert">
@@ -104,17 +104,17 @@
 	<update id="update_infor">
 		UPDATE SELLER SET SELLER_PW = #{param1}, seller_phone = #{param2} WHERE SELLER_ID = #{param3}
 	</update>
-	<select id="myfq">
+	<select id="myfq" resultType="funding.dto.FDtoFundingQuestion">
 		SELECT (SELECT FUNDING_TITLE FROM FUNDING F WHERE F.FUNDING_NUM = Q.QUESTION_FUNDING)
 		, QUESTION_NUM, QUESTION_FUNDING, QUESTION_CONTENT, QUESTION_AT, QUESTION_STATE 
 		 FROM FUNDING_QUESTION Q WHERE QUESTION_SELLER = #{param1} ORDER BY QUESTION_FUNDING
 	</select>
-	<select id="calfunding">
+	<select id="calfunding" resultType="funding.dto.FDtoFunding">
 		SELECT FUNDING_NUM, FUNDING_TITLE
 		, (SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM) AS TOTAL
 		FROM FUNDING F WHERE FUNDING_NUM = #{param1}
 	</select>
-	<select id="calinf">
+	<select id="calinf" resultType="funding.dto.FDtoCalculate">
 		select c.calculate_state from calculate c, funding f
 		where f.funding_num = #{param1}
 	</select>
