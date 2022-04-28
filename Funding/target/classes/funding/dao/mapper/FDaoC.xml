@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="funding.dao.FDaoCustomer">
+<mapper namespace="funding.dao.FDaoC">
 
 	<!-- 로그인, 회원가입 부분 -->
 	<delete id="leave">
@@ -29,11 +29,11 @@
 	</select>
 
 	<!-- 메인-->
-	<select id="mainlist">
+	<select id="mainlist" resultType="funding.dao.FDaoC">
 	SELECT FUNDING_NUM, FUNDING_SELLER, FUNDING_BANNER, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT, FUNDING_STATE, 
 	(SELECT SELLER_NAME FROM SELLER AS S WHERE F.FUNDING_SELLER = S.SELLER_ID), 
 	(SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM GROUP BY ORDER_FUNDING)/FUNDING_PURPOSE*100 AS ACHIEVEMENT, 
-	(SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM GROUP BY ORDER_FUNDING) FROM FUNDING AS F ${param1}
+	(SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM GROUP BY ORDER_FUNDING) FROM FUNDING AS F
 	</select>
 	
 	<!-- 펀딩 상세-->
