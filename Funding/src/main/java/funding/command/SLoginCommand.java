@@ -28,6 +28,7 @@ public class SLoginCommand implements FCommand {
 		
 		
 		String seller_id = daoS.slogin((String)id,(String)pw);
+
 		if(seller_id != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", seller_id);
@@ -35,9 +36,10 @@ public class SLoginCommand implements FCommand {
 		}
 		
 		if(seller_id == null) {
+			System.out.println("hello2");
 			request.setAttribute("viewpage", "../../pages/slogin.jsp?error=error");
 		}else {
-			request.setAttribute("viewpage", "main.do?sort=all");
+			request.setAttribute("viewpage", "main?sort=all");
 		}
 	}	
 

@@ -22,6 +22,8 @@ public class MainCommand implements FCommand {
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String query = null;
 		String sort = request.getParameter("sort");
+		
+		System.out.println("main here");
 		if(request.getParameter("sort")==null) sort = "all";
 		switch(sort) {
 		case(""):

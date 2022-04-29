@@ -16,6 +16,11 @@ public class FDtoS {
 	public FDtoS() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	public FDtoS(String seller_id) {
+		super();
+		this.seller_id = seller_id;
+	}
 
 	public FDtoS(String seller_id, String seller_pw, String seller_licence, String seller_number, String seller_profile,
 			String seller_name, String seller_phone, String seller_person_name, String seler_person_phone,

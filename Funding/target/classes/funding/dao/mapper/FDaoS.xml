@@ -23,7 +23,7 @@
 		INSERT INTO ADDRESS (ADDRESS_SELLER, ADDRESS_STATE, ADDRESS_CITY, ADDRESS_LINE) 
 		VALUES (#{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
-	<select id="slogin" resultType="funding.dto.FDtoS">
+	<select id="slogin" resultType="string">
 		SELECT SELLER_ID FROM SELLER WHERE SELLER_ID = #{param1} AND SELLER_PW = #{param2}
 	</select>
 	
