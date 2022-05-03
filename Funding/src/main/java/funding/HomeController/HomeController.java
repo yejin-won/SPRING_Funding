@@ -96,12 +96,16 @@ public class HomeController {
 	private FCommand sloginCommand = null;
 	private FCommand slogoutCommand = null;
 	private FCommand mainCommand = null;
+	private FCommand loginCommand = null;
+	private FCommand logoutCommand = null;
 	
 	@Autowired
-	public void auto(FCommand slogin, FCommand slogout, FCommand main) {
+	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login, FCommand logout) {
 		this.sloginCommand = slogin;
 		this.slogoutCommand = slogout;
 		this.mainCommand = main;
+		this.loginCommand = login;
+		this.logoutCommand = logout;
 	}
 	
 	String viewpage = null;
@@ -129,11 +133,8 @@ public class HomeController {
 		//CUSTOMER Sign In/Out & Log In
 		@RequestMapping("/login")
 		public String login(HttpServletRequest request, Model model) {
-			System.out.println("login()");
 			model.addAttribute("request", request);
-			command = new LoginCommand();
-			command.execute(sqlSession, model);
-			
+			loginCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
 		
@@ -149,12 +150,9 @@ public class HomeController {
 		
 		@RequestMapping("/logout")
 		public String logout(HttpServletRequest request, Model model) {
-			System.out.println("logout()");
 			model.addAttribute("request", request);
-			command = new LogoutCommand();
-			command.execute(sqlSession, model);
-			
-			return "main.do?sort=all";
+			logoutCommand.execute(sqlSession, model);
+			return "main";
 		}
 		
 		@RequestMapping("/leave")
@@ -169,13 +167,8 @@ public class HomeController {
 
 		@RequestMapping("/main")
 		public String mainscreen(HttpServletRequest request, Model model) {
-			System.out.println("mainscreen()");
-			
 			model.addAttribute("request", request);
-//			command = new MainCommand();
-//			command.execute(sqlSession, model);
 			mainCommand.execute(sqlSession, model);
-			
 			return "main";
 		}
 
@@ -403,13 +396,9 @@ public class HomeController {
 		//SELLER Sign In/Out & Log In
 		@RequestMapping("/slogin")
 		public String slogin(HttpServletRequest request, Model model) {
-			
-			System.out.println("slogin()");
+			System.out.println("login");
 			model.addAttribute("request", request);
-//			command = new SLoginCommand();
-//			command.execute(sqlSession, model);
 			sloginCommand.execute(sqlSession, model);
-			
 			return (String) request.getAttribute("viewpage");
 		}
 		

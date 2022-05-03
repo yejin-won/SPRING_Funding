@@ -23,26 +23,25 @@ public class MainCommand implements FCommand {
 		String query = null;
 		String sort = request.getParameter("sort");
 		
-		System.out.println("main here");
 		if(request.getParameter("sort")==null) sort = "all";
 		switch(sort) {
 		case(""):
-			query = "where funding_state = '진행'";
+			query = "WHERE FUNDING_STATE = '진행'";
 			break;
 		case("all"):
-			query = "where funding_state = '진행'";
+			query = "WHERE FUNDING_STATE = '진행'";
 		break;
 		case("hits"):
-			query = "where funding_state = '진행' order by funding_hits desc";
+			query = "WHERE FUNDING_STATE = '진행' ORDER BY FUNDING_HITS DESC";
 			break;
 		case("achievement"):
-			query = "where funding_state = '진행' order by achievement desc";
+			query = "WHERE FUNDING_STATE = '진행' ORDER BY ACHIEVEMENT DESc";
 		break;
 		case("closeAt"):
-			query = "where funding_state = '진행' order by funding_closeAt";
+			query = "WHERE FUNDING_STATE = '진행' ORDER BY FUNDING_CLOSEAT";
 		break;
 		case("end"):
-			query = "where funding_state != '진행'";
+			query = "WHERE FUNDING_STATE != '진행'";
 		break;
 		}
 		

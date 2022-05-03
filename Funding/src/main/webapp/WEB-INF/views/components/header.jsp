@@ -74,9 +74,9 @@ header {
 		<h1 class="font-color-main" onclick="goHome()">해피펀딩</h1>
 		<nav>
 			<ul>
-				<li><a href="/Funding/funding_list_view.do?page=1">펀딩</a></li>
-				<li><a href="/Funding/notice_list.do?page=1">공지사항</a></li>
-				<li><a href="/Funding/systemQuestion_list.do?page=1">Q&A</a></li>
+				<li><a href="/Funding/funding_list_view?page=1">펀딩</a></li>
+				<li><a href="/Funding/notice_list?page=1">공지사항</a></li>
+				<li><a href="/Funding/systemQuestion_list?page=1">Q&A</a></li>
 			</ul>
 		</nav>
 		<div id="loginZone">
@@ -120,7 +120,7 @@ window.onscroll = function () {
 };
 function goHome(){
 	//todo: 작성하던 내용이 사라집니다.
-	location.href = "/Funding/main.do?sort=all"
+	location.href = "/Funding/main?sort=all"
 }
 $(document).on("click", ".loginButton", function(e){
 	e.stopPropagation();
@@ -130,7 +130,7 @@ $(document).on("click", ".loginButton", function(e){
 $(document).on("click", ".logoutButton", function(e){
 	e.stopPropagation();
 	localStorage.setItem("pastURL", location.href);
-	location.href = "/Funding/tempLogoutDo.jsp";
+	location.href = "/Funding/logout";
 })
 $(document).on("click", ".makeFunding", function(e){
 	e.stopPropagation();
@@ -138,9 +138,9 @@ $(document).on("click", ".makeFunding", function(e){
 })
 
 function goMyPage(){
-	location.href = "/Funding/mypage.do?tab=1&page=1"
+	location.href = "/Funding/mypage?tab=1&page=1"
 }
 function goSMyPage(){
-	location.href = "/Funding/sMypage.do?tab=1&page=1"
+	location.href = "/Funding/sMypage?tab=1&page=1"
 }
 </script>

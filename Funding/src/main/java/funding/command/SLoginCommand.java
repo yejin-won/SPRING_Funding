@@ -17,13 +17,11 @@ public class SLoginCommand implements FCommand {
 		// TODO Auto-generated method stub
 		
 		
-		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request =(HttpServletRequest) map.get("request");
 		
 		String id = request.getParameter("seller_id");
 		String pw = request.getParameter("seller_pw");
-//		FDaoS daoS = new FDaoS();
 		FDaoS daoS = sqlSession.getMapper(FDaoS.class);
 		
 		
@@ -32,6 +30,7 @@ public class SLoginCommand implements FCommand {
 		if(seller_id != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("id", seller_id);
+			session.setAttribute("email", seller_id);
 			session.setAttribute("isSeller", "true");
 		}
 		
@@ -39,7 +38,7 @@ public class SLoginCommand implements FCommand {
 			System.out.println("hello2");
 			request.setAttribute("viewpage", "../../pages/slogin.jsp?error=error");
 		}else {
-			request.setAttribute("viewpage", "main?sort=all");
+			request.setAttribute("viewpage", "main");
 		}
 	}	
 
