@@ -19,7 +19,7 @@ public class SystemQuestionDetailCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
 		String num = request.getParameter("question_num");
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		FDtoSystemQuestion detail = dao.systemquestion_detail(num);
 		
 		request.setAttribute("dto", detail);
