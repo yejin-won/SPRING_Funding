@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 <style>
 .notice__wrap {
 	width: 960px;
@@ -69,8 +69,8 @@
 	overflow: hidden;
 }
 </style>
-<script src="/Funding/libraries/jQuery.js"></script>
-<script src="/Funding/libraries/moment.js"></script>
+<script src="resources/jQuery.js"></script>
+<script src="resources/moment.js"></script>
 <script>
 	let hello = moment("${notice.notice_At}").format("YYYY-MM-DD")
 	$(document).ready(function(){

@@ -33,27 +33,25 @@ public class FundingdetailCommand implements FCommand {
 //		Object uID = session.getAttribute("uId"); 
 		HttpSession session = request.getSession();
 		String funding_num  =request.getParameter("fid");
-		String email = (String) session.getAttribute("email");
+		String id = (String) session.getAttribute("email");
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
-		
+
+		System.out.println(id);
 		int hits = dao.select_hits(funding_num);
 		hits++;
 		dao.update_hits(funding_num, hits);
-
-		
 		
 		FDtoFunding dtos = dao.funding_detail(funding_num);
-		ArrayList<FDtoFundingOption> optionDtos = dao.optionList(funding_num);
+		//ArrayList<FDtoFundingOption> optionDtos = dao.optionList(funding_num);
 		ArrayList<FDtoFundingQuestion> questionDtos = dao.questionList(funding_num);
-		ArrayList<FDtoOrder> orderDtos = dao.orderList(funding_num);
-		Boolean isLike = dao.checkLike(email, funding_num);
-		System.out.println(isLike);
+		//ArrayList<FDtoOrder> orderDtos = dao.orderList(funding_num);
+		//Boolean isLike = dao.checkLike(id, funding_num);
 		
 		request.setAttribute("funding", dtos);
-		request.setAttribute("optionList", optionDtos);
+		//request.setAttribute("optionList", optionDtos);
 		request.setAttribute("questionList",questionDtos);
-		request.setAttribute("orderList",orderDtos);
-		request.setAttribute("isLike", isLike);
+		//request.setAttribute("orderList",orderDtos);
+		//request.setAttribute("isLike", isLike);
 		
 	}
 
