@@ -334,7 +334,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 			systemQuestionCommand.execute(sqlSession, model);
 			
-			return "systemQuestion_list";
+			return "../../../Funding/systemQuestion_list";
 		}
 
 		@RequestMapping("/systemQuestion_detail")
@@ -342,7 +342,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 			systemQuestion_detailCommand.execute(sqlSession, model);
 			
-			return "../../pages/systemquestion_detail";
+			return "/systemquestion_detail";
 		}
 
 		@RequestMapping("/notice_list")

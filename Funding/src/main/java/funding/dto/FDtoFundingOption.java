@@ -9,6 +9,8 @@ public class FDtoFundingOption {
 	int option_price;
 	int option_amount;
 	int count;
+	
+	
 	public int getOption_num() {
 		return option_num;
 	}
@@ -46,6 +48,8 @@ public class FDtoFundingOption {
 		this.option_amount = option_amount;
 	}
 	
+	public FDtoFundingOption() {
+	}
 	
 	public FDtoFundingOption(int option_num, String option_name, int option_price, int option_amount) {
 		super();

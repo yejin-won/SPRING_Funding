@@ -42,18 +42,18 @@ public class FundingdetailCommand implements FCommand {
 		dao.update_hits(funding_num, hits);
 		
 		FDtoFunding dtos = dao.funding_detail(funding_num);
-		//ArrayList<FDtoFundingOption> optionDtos = dao.optionList(funding_num);
+		ArrayList<FDtoFundingOption> optionDtos = dao.optionList(funding_num);
 		ArrayList<FDtoFundingQuestion> questionDtos = dao.questionList(funding_num);
-		//ArrayList<FDtoOrder> orderDtos = dao.orderList(funding_num);
+		ArrayList<FDtoOrder> orderDtos = dao.orderList(funding_num);
 		boolean isLike = false;
 		if(id!=null) {
 		String Like = dao.checkLike(id, funding_num);
 		if(Like!=null) isLike = true;
 		}
 		request.setAttribute("funding", dtos);
-		//request.setAttribute("optionList", optionDtos);
+		request.setAttribute("optionList", optionDtos);
 		request.setAttribute("questionList",questionDtos);
-		//request.setAttribute("orderList",orderDtos);
+		request.setAttribute("orderList",orderDtos);
 		request.setAttribute("isLike", isLike);
 		
 	}

@@ -35,7 +35,7 @@ public class MainCommand implements FCommand {
 			query = "WHERE FUNDING_STATE = '진행' ORDER BY FUNDING_HITS DESC";
 			break;
 		case("achievement"):
-			query = "WHERE FUNDING_STATE = '진행' ORDER BY ACHIEVEMENT DESc";
+			query = "WHERE FUNDING_STATE = '진행' ORDER BY FUNDING_ACHIEVEMENT DESC";
 		break;
 		case("closeAt"):
 			query = "WHERE FUNDING_STATE = '진행' ORDER BY FUNDING_CLOSEAT";
