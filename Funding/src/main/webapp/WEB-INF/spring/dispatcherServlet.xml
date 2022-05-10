@@ -35,8 +35,25 @@
 	<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
+	<!--For Seller -->
 	<beans:bean name ="slogin" class="funding.command.SLoginCommand"></beans:bean>
 	<beans:bean name ="slogout" class="funding.command.SLogoutCommand"></beans:bean>
+	<beans:bean name ="ssignup" class="funding.command.SSignUpCommand"></beans:bean>
+	<beans:bean name ="sFOApply" class="funding.command.SFOApplyCommand"></beans:bean>
+	<beans:bean name ="sQApply_view" class="funding.command.SQApplyCommand" ></beans:bean>
+	<beans:bean name ="sMypage" class="funding.command.SMypageCommand"></beans:bean>
+	<beans:bean name ="sMFDetail" class="funding.command.SMFDetailCommand"></beans:bean>
+	<beans:bean name ="sMFModify" class="funding.command.SMFDetailCommand"></beans:bean>
+	<beans:bean name ="sMFDDelete" class="funding.command.SMFDetailCommand"></beans:bean>
+	<beans:bean name ="sMFCApply" class="funding.command.SMFCApplyDetailCommand"></beans:bean>
+	<beans:bean name ="sMFCApply_view" class="funding.command.SMFCApplyViewCommand"></beans:bean>
+	<beans:bean name ="sFADetail" class="funding.command.SMFCApplyViewCommand"></beans:bean>
+	<beans:bean name ="sFAnswer" class="funding.command.SFAnswerCommand"></beans:bean>
+	<beans:bean name ="smyinformation_modify" class="funding.command.SMyinformationModifyCommand"></beans:bean>
+	<beans:bean name ="movemycal" class="funding.command.SMFCApplyCommand"></beans:bean>
+	
+	
+	<!-- For Customer -->
 	<beans:bean name ="main" class="funding.command.MainCommand"></beans:bean>
 	<beans:bean name ="login" class="funding.command.LoginCommand"></beans:bean>
 	<beans:bean name ="logout" class="funding.command.LogoutCommand"></beans:bean>

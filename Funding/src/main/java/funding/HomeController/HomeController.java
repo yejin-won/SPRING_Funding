@@ -98,14 +98,43 @@ public class HomeController {
 	private FCommand mainCommand = null;
 	private FCommand loginCommand = null;
 	private FCommand logoutCommand = null;
+	private FCommand ssignupCommand = null;
+	private FCommand sFOApplyCommand = null;
+	private FCommand sQApplyCommand = null;
+	private FCommand sMypageCommand = null;
+	private FCommand sMFDetailCommand = null;
+	private FCommand sMFCApplyDetailCommand = null;
+	private FCommand sMFCApplyViewCommand = null;
+	private FCommand sFAnswerCommand = null;
+	private FCommand sMyinformationModifyCommand = null;
+	private FCommand sMFCApplyCommand = null;
+
 	
 	@Autowired
-	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login, FCommand logout) {
+	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login,
+					 FCommand logout, FCommand ssignup, FCommand sFOApply,
+					 FCommand sQApply_view, FCommand sMypage, FCommand sMFDetail,
+					 FCommand sMFModify, FCommand sMFDDelete, FCommand sMFCApply,
+					 FCommand sMFCApply_view,FCommand sFADetail, FCommand sFAnswer,
+					 FCommand smyinformation_modify,FCommand movemycal) {
 		this.sloginCommand = slogin;
 		this.slogoutCommand = slogout;
 		this.mainCommand = main;
 		this.loginCommand = login;
 		this.logoutCommand = logout;
+		this.ssignupCommand = ssignup;
+		this.sFOApplyCommand = sFOApply;
+		this.sQApplyCommand = sQApply_view;
+		this.sMypageCommand = sMypage;
+		this.sMFDetailCommand = sMFDetail;
+		this.sMFDetailCommand = sMFModify;
+		this.sMFDetailCommand = sMFDDelete;
+		this.sMFCApplyDetailCommand = sMFCApply;
+		this.sMFCApplyViewCommand = sMFCApply_view;
+		this.sMFCApplyViewCommand = sFADetail;
+		this.sFAnswerCommand = sFAnswer;
+		this.sMyinformationModifyCommand = smyinformation_modify;
+		this.sMFCApplyCommand = movemycal;
 	}
 	
 	String viewpage = null;
@@ -417,8 +446,9 @@ public class HomeController {
 		public String ssignup(HttpServletRequest request, Model model) {
 			System.out.println("ssignup()");
 			model.addAttribute("request", request);
-			command = new SSignUpCommand();
-			command.execute(sqlSession, model);
+//			command = new SSignUpCommand();
+//			command.execute(sqlSession, model);
+			ssignupCommand.execute(sqlSession, model);
 			
 			return "../../pages/slogin";
 		}
@@ -428,8 +458,9 @@ public class HomeController {
 		public String sfoapply(HttpServletRequest request ,Model model) {
 			System.out.println("sfoapply()");
 			model.addAttribute("request", request);
-			command = new SFOApplyCommand();
-			command.execute(sqlSession, model);
+//			command = new SFOApplyCommand();
+//			command.execute(sqlSession, model);
+			sFOApplyCommand.execute(sqlSession, model);
 			
 			return "main.do?sort=all";
 		}
@@ -438,8 +469,9 @@ public class HomeController {
 		public String sQApllyview(HttpServletRequest request, Model model) {
 			System.out.println("sqapplyview()");
 			model.addAttribute("request", request);
-			command = new SQApplyCommand();
-			command.execute(sqlSession, model);
+//			command = new SQApplyCommand();
+//			command.execute(sqlSession, model);
+			sQApplyCommand.execute(sqlSession, model);
 			
 			return "sQApply_view";
 		}
@@ -454,8 +486,10 @@ public class HomeController {
 		public String smypage(HttpServletRequest request, Model model) {
 			System.out.println("smypage()");
 			model.addAttribute("request", request);
-			command = new SMypageCommand();
-			command.execute(sqlSession, model);
+//			command = new SMypageCommand();
+//			command.execute(sqlSession, model);
+			sMypageCommand.execute(sqlSession, model);
+			
 			return "../../pages/Smypage";
 		}
 		
@@ -463,17 +497,21 @@ public class HomeController {
 		public String smfdetail(HttpServletRequest request, Model model) {
 			System.out.println("smfdetail()");
 			model.addAttribute("request", request);
-			command = new SMFDetailCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFDetailCommand();
+//			command.execute(sqlSession, model);
+			sMFDetailCommand.execute(sqlSession, model);
+			
 			return "../../pages/sMFDetail";
 		}
+
 
 		@RequestMapping("/sMFModify")
 		public String smfmodify(HttpServletRequest request, Model model) {
 			System.out.println("smfmodify()");
 			model.addAttribute("request", request);
-			command = new SMFDetailCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFDetailCommand();
+//			command.execute(sqlSession, model);
+			sMFDetailCommand.execute(sqlSession, model);
 			
 			return "sMFManage";
 		}
@@ -482,8 +520,9 @@ public class HomeController {
 		public String smfddelete(HttpServletRequest request, Model model) {
 			System.out.println("sfddelete()");
 			model.addAttribute("request", request);
-			command = new SMFDetailDeleteCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFDetailDeleteCommand();
+//			command.execute(sqlSession, model);
+			sMFDetailCommand.execute(sqlSession, model);
 			
 			return "sMFDDelete";
 		}
@@ -492,8 +531,9 @@ public class HomeController {
 		public String smfcapply(HttpServletRequest request, Model model) {
 			System.out.println("smfcapply()");
 			model.addAttribute("request", request);
-			command = new SMFCApplyDetailCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFCApplyDetailCommand();
+//			command.execute(sqlSession, model);
+			sMFCApplyDetailCommand.execute(sqlSession, model);
 			
 			return "sMFCApply";
 		}
@@ -502,8 +542,9 @@ public class HomeController {
 		public String smfcapplyView(HttpServletRequest request, Model model) {
 			System.out.println("smfcapplyView()");
 			model.addAttribute("request", request);
-			command = new SMFCApplyViewCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFCApplyViewCommand();
+//			command.execute(sqlSession, model);
+			sMFCApplyViewCommand.execute(sqlSession, model);
 			
 			return "sMFCApply_view";
 		}
@@ -512,8 +553,9 @@ public class HomeController {
 		public String sfadetail(HttpServletRequest request, Model model) {
 			System.out.println("sfadetail()");
 			model.addAttribute("request", request);
-			command = new SMFCApplyViewCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFCApplyViewCommand();
+//			command.execute(sqlSession, model);
+			sMFCApplyViewCommand.execute(sqlSession, model);
 			
 			return "sFAnswer";
 		}
@@ -522,8 +564,9 @@ public class HomeController {
 		public String sfanswer(HttpServletRequest request, Model model) {
 			System.out.println("sfanswer()");
 			model.addAttribute("request", request);
-			command = new SFAnswerCommand();
-			command.execute(sqlSession, model);
+//			command = new SFAnswerCommand();
+//			command.execute(sqlSession, model);
+			sFAnswerCommand.execute(sqlSession, model);
 			
 			return (String)request.getAttribute("viewpage");
 		}
@@ -532,8 +575,9 @@ public class HomeController {
 		public String smyinfoM(HttpServletRequest request, Model model) {
 			System.out.println("smyinfoM()");
 			model.addAttribute("request", request);
-			command = new SMyinformationModifyCommand();
-			command.execute(sqlSession, model);
+//			command = new SMyinformationModifyCommand();
+//			command.execute(sqlSession, model);
+			sMyinformationModifyCommand.execute(sqlSession, model);
 			
 			return "sMypage";
 		}
@@ -542,8 +586,9 @@ public class HomeController {
 		public String movemycal(HttpServletRequest request, Model model) {
 			System.out.println("movemycal()");
 			model.addAttribute("request", request);
-			command = new SMFCApplyCommand();
-			command.execute(sqlSession, model);
+//			command = new SMFCApplyCommand();
+//			command.execute(sqlSession, model);
+			sMFCApplyCommand.execute(sqlSession, model);
 			
 			return "../../pages/mycal";
 		}
