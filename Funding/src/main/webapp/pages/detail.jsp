@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="resources/init.css">
 <link rel="stylesheet" href="resources/base.css">
-<link rel="stylesheet" href="./detail.css">
+<link rel="stylesheet" href="resources/detail.css">
 <title>펀딩 상세페이지</title>
 </head>
 <%
@@ -110,7 +110,7 @@ if (fid == null) {
 				<div class="detail__funding__select">
 					<div class="detail__funding__btnBox">
 						<p>리워드 선택하기</p>
-						<img src="/Funding/assets/arrow-down.svg">
+						<img src="resources/arrow-down.svg">
 					</div>
 					<div class="detail__funding__options" id="funding__options">
 						<c:forEach items="${optionList }" var="option" varStatus="status">
@@ -175,9 +175,9 @@ if (fid == null) {
 	$(document).ready(function(){
 		let isLike = ${isLike}
 		if(isLike){
-			$("#funding__isLiked").addClass("liked").html('<img src="/Funding/assets/heart_filled.png">')
+			$("#funding__isLiked").addClass("liked").html('<img src="resources/heart_filled.png">')
 		}else{
-			$("#funding__isLiked").removeClass("liked").html('<img src="/Funding/assets/heart_blank.png">')
+			$("#funding__isLiked").removeClass("liked").html('<img src="resources/heart_blank.png">')
 
 		}
 		
@@ -207,8 +207,17 @@ if (fid == null) {
 	})
 	$("#funding__isLiked").click(function(){
 		let cid = "<%=session.getAttribute("id")%>"
-		let fid = <%=request.getParameter("fid")%>
+		let fid = <%=request.getParameter("id")%>
 		if(cid === null){
+			alert("먼저 로그인 해주세요!")
+		}else{
+			if($(this).hasClass("liked")){
+				location.href = "/Funding/fundingUnLike?customer_id="+cid+"&funding_num="+fid
+			}else{
+				location.href = "/Funding/fundingLike?customer_id="+cid+"&funding_num="+fid
+			}
+		}
+		if(fid === null){
 			alert("먼저 로그인 해주세요!")
 		}else{
 			if($(this).hasClass("liked")){

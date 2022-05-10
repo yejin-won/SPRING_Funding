@@ -207,7 +207,7 @@ public class HomeController {
 		public String logout(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			logoutCommand.execute(sqlSession, model);
-			return "main";
+			return "/main";
 		}
 		
 		@RequestMapping("/leave")
@@ -215,7 +215,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 			leaveCommand.execute(sqlSession, model);
 			
-			return "main";
+			return "/main";
 		}
 
 		@RequestMapping("/main")
@@ -434,7 +434,7 @@ public class HomeController {
 			command = new SFOApplyCommand();
 			command.execute(sqlSession, model);
 			
-			return "main.do?sort=all";
+			return "/main";
 		}
 		
 		@RequestMapping("/sQApply_view")
@@ -449,7 +449,7 @@ public class HomeController {
 		
 		@RequestMapping("/sQApply")
 		public String sqapply(Model model) {
-			return "main.do?sort=all";
+			return "/main";
 		}
 		
 		

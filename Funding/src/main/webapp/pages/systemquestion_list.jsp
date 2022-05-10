@@ -130,7 +130,7 @@
 			<div class="question__search__box">
 				<input class="question__search" placeholder="검색하실 제목이나 내용을 입력하세요"
 					id="question_search" name="question_search"> <img
-					src="../WEB-INF/views/assets/search.svg" class="question__search__icon">
+					src="resources/search.svg" class="question__search__icon">
 			</div>
 		</div>
 		<ul class="question__box">

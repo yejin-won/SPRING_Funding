@@ -8,7 +8,7 @@ public class FDtoFundingOption {
 	String option_name;
 	int option_price;
 	int option_amount;
-	
+	int count;
 	public int getOption_num() {
 		return option_num;
 	}
@@ -54,14 +54,20 @@ public class FDtoFundingOption {
 		this.option_price = option_price;
 		this.option_amount = option_amount;
 	}
-	public FDtoFundingOption(int option_num, int option_numbering, String option_name, int option_price,
-			int option_amount) {
+	public FDtoFundingOption(int option_num, String option_name, int option_price,
+			int option_amount,int count) {
 		super();
 		this.option_num = option_num;
-		this.option_numbering = option_numbering;
 		this.option_name = option_name;
 		this.option_price = option_price;
 		this.option_amount = option_amount;
+		this.count = count;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	
 	

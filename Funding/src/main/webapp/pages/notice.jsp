@@ -103,7 +103,7 @@ text-align: center;
 			<div class="notice__search__box">
 				<input class="notice__search" placeholder="검색하실 제목이나 내용을 입력하세요."
 					id="notice__search" name="notice__search"> <img
-					src="../WEB-INF/views/assets/search.svg" class="notice__search__icon">
+					src="resources/search.svg" class="notice__search__icon">
 			</div>
 		</div>
 		<ul class="notice__box">

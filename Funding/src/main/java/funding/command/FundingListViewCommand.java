@@ -27,7 +27,7 @@ public class FundingListViewCommand implements FCommand {
 		
 		int countFunding = dao.countFunding();
 		page = (page-1)*10;
-		ArrayList<FDtoFunding> list = dao.fundinglistview(page);
+		ArrayList<FDtoFunding> list = dao.funding_list_view(page);
 		
 		request.setAttribute("funding", list);
 		request.setAttribute("countQuestion", countFunding);

@@ -275,8 +275,8 @@ justify-content: space-around;
 	<div class="signIn__wrap">
 		<div class="signIn__content">
 			<h1 class="signIn__title">로그인</h1>
-			<jsp:include page="/apis/socialLogin/kakaoLogin.jsp" />
-			<jsp:include page="/apis/socialLogin/naverLogin.jsp" />
+			<jsp:include page="./kakaoLogin.jsp" />
+			<jsp:include page="./naverLogin.jsp" />
 			<div class="signIn__divider"></div>
 			<form action="/Funding/login" name="signInForm" method="post"
 				onsubmit="checkCheck()">
@@ -318,12 +318,5 @@ justify-content: space-around;
 		</div>
 	</div>
 	<div id="toast"></div>
-	<script type="text/javascript">
-
-$(document).on("click", ".findIdwButton", function(e){
-	e.stopPropagation();
-	localStorage.setItem("pastURL", location.href);
-	location.href = "/Funding/findId_view.do";
-})</script>
 </body>
 </html>
