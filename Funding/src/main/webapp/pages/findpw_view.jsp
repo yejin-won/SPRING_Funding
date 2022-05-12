@@ -48,7 +48,7 @@
 	
 </script>
 <body>
-	<form name="findId" action="/Funding/findPw.do" method="post">
+	<form name="findId" action="/Funding/findPw" method="post">
 		<div class="signUp__liner">
 			<p class="signUp__subTitle">아이디</p>
 			<input class="signUp__input" id="id" name="id"

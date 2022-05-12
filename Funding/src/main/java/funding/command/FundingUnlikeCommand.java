@@ -23,7 +23,7 @@ public class FundingUnlikeCommand implements FCommand {
 //		String like_At  = request.getParameter("customer_id");
 		int like_funding  = Integer.parseInt(request.getParameter("funding_num")) ;
 		
-		request.setAttribute("viewpage", "/fundingContent_view.do?fid=" + request.getParameter("funding_num"));
+		request.setAttribute("viewpage", "redirect:/fundingContent_view?fid=" + request.getParameter("funding_num"));
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 
 		

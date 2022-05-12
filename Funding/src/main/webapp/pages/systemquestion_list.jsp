@@ -155,7 +155,7 @@
 
 	</div>
 	<div class="sys__add__question">
-		<a href="/Funding/pages/systemquestion_create.jsp"
+		<a href="systemQuestion_view"
 			class="question__create">질문 등록하기</a>
 	</div>
 	<script src="resources/jQuery.js"></script>

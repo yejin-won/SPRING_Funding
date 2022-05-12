@@ -41,24 +41,7 @@ import funding.command.ASystemQAnswerInsertCommand;
 import funding.command.ASystemQDetailCommand;
 import funding.command.ASystemQuestionRemoveCommand;
 //CUSTOMER
-import funding.command.FindidCommand;
 import funding.command.FindpwCommand;
-import funding.command.FundingLikeCommand;
-import funding.command.FundingListViewCommand;
-import funding.command.FundingPaymentCommand;
-import funding.command.FundingQuestionCommand;
-import funding.command.FundingUnlikeCommand;
-import funding.command.FundingdetailCommand;
-import funding.command.LeaveCommand;
-import funding.command.LoginCommand;
-import funding.command.LogoutCommand;
-//import funding.command.MainCommand;
-import funding.command.MyOrderDetailCommand;
-import funding.command.MyinformationModifyCommand;
-import funding.command.MypageCommand;
-import funding.command.NoticeDetailCommand;
-import funding.command.NoticeListCommand;
-import funding.command.NoticeSearchCommand;
 //SELLER
 import funding.command.SFAnswerCommand;
 import funding.command.SFOApplyCommand;
@@ -73,12 +56,6 @@ import funding.command.SMyinformationModifyCommand;
 import funding.command.SMypageCommand;
 import funding.command.SQApplyCommand;
 import funding.command.SSignUpCommand;
-import funding.command.SearchCommand;
-import funding.command.SignupCommand;
-import funding.command.SocialLoginCommand;
-import funding.command.SystemQuestionCommand;
-import funding.command.SystemQuestionDetailCommand;
-import funding.command.SystemQuestionSearchCommand;
 import funding.command.SystemQuestionlistCommand;
 
 @Controller
@@ -108,7 +85,7 @@ public class HomeController {
 	private FCommand fundingContent_viewCommand =null;
 	private FCommand fundingLikeCommand =null;
 	private FCommand fundingUnLikeCommand =null;
-	private FCommand fundingOrderCommand =null;
+	private FCommand fundingPaymentCommand =null;
 	private FCommand fundingQuestionCommand =null;
 	private FCommand systemQuestion_listCommand =null;
 	private FCommand systemQuestion_searchCommand =null;
@@ -150,7 +127,7 @@ public class HomeController {
 		this.fundingContent_viewCommand = fundingContent_view;
 		this.fundingLikeCommand =fundingLike;
 		this.fundingUnLikeCommand =fundingUnLike;
-		this.fundingOrderCommand =fundingOrder;
+		this.fundingPaymentCommand =fundingOrder;
 		this.fundingQuestionCommand =fundingQuestion;
 		this.systemQuestion_listCommand =systemQuestion_list;
 		this.systemQuestion_searchCommand =systemQuestion_search;
@@ -207,7 +184,7 @@ public class HomeController {
 		public String logout(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			logoutCommand.execute(sqlSession, model);
-			return "/main";
+			return "redirect:/main";
 		}
 		
 		@RequestMapping("/leave")
@@ -215,7 +192,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 			leaveCommand.execute(sqlSession, model);
 			
-			return "/main";
+			return "redirect:/main";
 		}
 
 		@RequestMapping("/main")
@@ -300,7 +277,7 @@ public class HomeController {
 		@RequestMapping("/fundingOrder")
 		public String forder(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
-			fundingOrderCommand.execute(sqlSession, model);
+			fundingPaymentCommand.execute(sqlSession, model);
 			
 			return "fundingOrder";
 		}
@@ -329,12 +306,17 @@ public class HomeController {
 			return "../../pages/systemquestion_list";
 		}
 
+		@RequestMapping("/systemQuestion_view")
+		public String sysQV(HttpServletRequest request, Model model) {
+			return "../../pages/systemquestion_create";
+		}
+		
 		@RequestMapping("/systemQuestion")
 		public String sysQ(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			systemQuestionCommand.execute(sqlSession, model);
 			
-			return "../../../Funding/systemQuestion_list";
+			return "redirect:/systemQuestion_list";
 		}
 
 		@RequestMapping("/systemQuestion_detail")

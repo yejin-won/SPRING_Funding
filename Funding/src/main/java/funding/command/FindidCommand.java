@@ -27,7 +27,7 @@ public class FindidCommand implements FCommand {
 		if(customer_id!=null) {
 			request.setAttribute("customer_id", customer_id);
 			request.setAttribute("customer_name", name);
-			request.setAttribute("viewpage", "../../pages/findId.jsp");
+			request.setAttribute("viewpage", "../../pages/findId");
 			
 		}else request.setAttribute("viewpage", "../../pages/findId_view.jsp?error=error");
 	}
