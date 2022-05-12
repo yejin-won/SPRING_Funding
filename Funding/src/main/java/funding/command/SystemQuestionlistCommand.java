@@ -24,6 +24,7 @@ public class SystemQuestionlistCommand implements FCommand {
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
+		page = (page-1)*10;
 		int countQuestion = dao.countQuestion();
 		ArrayList<FDtoSystemQuestion> list = dao.systemquestion_view(page);
 		

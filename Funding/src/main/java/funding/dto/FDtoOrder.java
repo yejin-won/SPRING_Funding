@@ -16,6 +16,9 @@ public class FDtoOrder {
 	String option_name;
 	int order_cost;
 	
+	public FDtoOrder() {
+		
+	}
 	public int getOrder_num() {
 		return order_num;
 	}

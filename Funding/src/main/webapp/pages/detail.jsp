@@ -6,9 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
-<link rel="stylesheet" href="/Funding/pages/detail.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
+<link rel="stylesheet" href="resources/detail.css">
 <title>펀딩 상세페이지</title>
 </head>
 <%
@@ -17,11 +17,11 @@ if (fid == null) {
 	response.sendRedirect("/Funding/main.jsp");
 }
 %>
-<script type="text/javascript" src="/Funding/libraries/jQuery.js"></script>
-<script type="text/javascript" src="/Funding/libraries/moment.js"></script>
+<script type="text/javascript" src="resources/jQuery.js"></script>
+<script type="text/javascript" src="resources/moment.js"></script>
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<script type="text/javascript" src="/Funding/pages/detail.js"></script>
+<script type="text/javascript" src="resources/detail.js"></script>
 
 <body>
 	<jsp:include page="../WEB-INF/views/components/header.jsp" />
@@ -61,7 +61,7 @@ if (fid == null) {
 				<div class="detail__tab" id="tab-questions">
 					<!-- 구매자면 질문창, 판매자면 답변창 -->
 					<div class="detail__qna__new__box">
-						<form action="/Funding/fundingQuestion.do" method="post">
+						<form action="/Funding/fundingQuestion" method="post">
 							<input type="hidden" value="${funding.funding_num }" name="question_funding">
 							<input class="detail__qna__new__input" name="question_content">
 							<div class="detail__qna__new__submit__box">
@@ -110,7 +110,7 @@ if (fid == null) {
 				<div class="detail__funding__select">
 					<div class="detail__funding__btnBox">
 						<p>리워드 선택하기</p>
-						<img src="/Funding/assets/arrow-down.svg">
+						<img src="resources/arrow-down.svg">
 					</div>
 					<div class="detail__funding__options" id="funding__options">
 						<c:forEach items="${optionList }" var="option" varStatus="status">
@@ -175,9 +175,9 @@ if (fid == null) {
 	$(document).ready(function(){
 		let isLike = ${isLike}
 		if(isLike){
-			$("#funding__isLiked").addClass("liked").html('<img src="/Funding/assets/heart_filled.png">')
+			$("#funding__isLiked").addClass("liked").html('<img src="resources/heart_filled.png">')
 		}else{
-			$("#funding__isLiked").removeClass("liked").html('<img src="/Funding/assets/heart_blank.png">')
+			$("#funding__isLiked").removeClass("liked").html('<img src="resources/heart_blank.png">')
 
 		}
 		
@@ -207,14 +207,23 @@ if (fid == null) {
 	})
 	$("#funding__isLiked").click(function(){
 		let cid = "<%=session.getAttribute("id")%>"
-		let fid = <%=request.getParameter("fid")%>
+		let fid = <%=request.getParameter("id")%>
 		if(cid === null){
 			alert("먼저 로그인 해주세요!")
 		}else{
 			if($(this).hasClass("liked")){
-				location.href = "/Funding/fundingUnLike.do?customer_id="+cid+"&funding_num="+fid
+				location.href = "/Funding/fundingUnLike?customer_id="+cid+"&funding_num="+fid
 			}else{
-				location.href = "/Funding/fundingLike.do?customer_id="+cid+"&funding_num="+fid
+				location.href = "/Funding/fundingLike?customer_id="+cid+"&funding_num="+fid
+			}
+		}
+		if(fid === null){
+			alert("먼저 로그인 해주세요!")
+		}else{
+			if($(this).hasClass("liked")){
+				location.href = "/Funding/fundingUnLike?customer_id="+cid+"&funding_num="+fid
+			}else{
+				location.href = "/Funding/fundingLike?customer_id="+cid+"&funding_num="+fid
 			}
 		}
 		

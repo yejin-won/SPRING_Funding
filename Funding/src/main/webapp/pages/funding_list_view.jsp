@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>진행중인 펀딩 목록</title>
 </head>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 </head>
 <style>
 .list__wrap {
@@ -105,7 +105,7 @@
 			<div class="list__search__box">
 				<input class="list__search" placeholder="검색할 펀딩이나 판매자를 입력하세요."
 					id="list__search" name="notice_search"> <img
-					src="/Funding/assets/search.svg" class="list__search__icon">
+					src="resources/search.svg" class="list__search__icon">
 			</div>
 		</div>
 		
@@ -117,11 +117,11 @@
 		<div class="pages__box" id="page__box">
 		</div>
 	</div>
-	<script src="/Funding/libraries/jQuery.js"></script>
+	<script src="resources/jQuery.js"></script>
 	<script type="text/javascript">
 
 		$(document).on("click", ".list__search__icon", function() {
-			location.href = "/Funding/fundingSearch.do?funding_search="+$("#list__search").val();
+			location.href = "/Funding/fundingSearch?funding_search="+$("#list__search").val();
 		})
 	</script>
 
@@ -132,7 +132,7 @@ let closeDate = "";
 <c:forEach items="${funding}" var="funding">
  openDate = '${funding.funding_openAt}';
  closeDate = '${funding.funding_closeAt }'
- txt += '<li class="list__liner"><a href="/Funding/fundingContent_view.do?fid=${funding.funding_num}" class="list__title">${funding.funding_title }</a>'
+ txt += '<li class="list__liner"><a href="/Funding/fundingContent_view?fid=${funding.funding_num}" class="list__title">${funding.funding_title }</a>'
  txt += '<p class="list__seller">${funding.funding_seller }</p>'
  txt += '<p class="list__date">'+openDate.split(" ")[0]+'</p><p class="list__date">'+closeDate.split(" ")[0]+'</p></li>'
 </c:forEach>
@@ -145,10 +145,10 @@ let closeDate = "";
 	let pageTxt = "";
 	for (var i = 1; i <= pages; i++) {
 		if(i === currentPage){
-			pageTxt += '<a class="selected" href="/Funding/funding_list_view.do?page='+i+'">'+i+'</a>'
+			pageTxt += '<a class="selected" href="/Funding/funding_list_view?page='+i+'">'+i+'</a>'
 
 		}else{
-			pageTxt += '<a href="/Funding/funding_list_view.do?page='+i+'">'+i+'</a>'
+			pageTxt += '<a href="/Funding/funding_list_view?page='+i+'">'+i+'</a>'
 
 		}
 	}

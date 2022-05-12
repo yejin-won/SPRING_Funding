@@ -46,6 +46,7 @@ public class MypageCommand implements FCommand {
 		ArrayList<FDtoFunding> mylikelist = null;
 		ArrayList<FDtoSystemQuestion> myquestionlist = null;
 		ArrayList<FDtoFundingQuestion> myfundingquestionlist = null;
+		page = (page-1)*10;
 		
 		if(tab == 1) {
 			myfundinglist = dao.myfundinglist(id, page);		

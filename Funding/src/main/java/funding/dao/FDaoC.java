@@ -22,7 +22,7 @@ public interface FDaoC {
 	
 	public ArrayList<FDtoFunding> mainlist(String querying);
 	
-	public boolean checkLike(String cid, String fid);
+	public String checkLike(String cid, String fid);
 	public FDtoFunding funding_detail(String fnum);
 	public ArrayList<FDtoFundingOption> optionList(String funding_num);
 	public ArrayList<FDtoFundingQuestion> questionList(String funding_num);
@@ -45,7 +45,7 @@ public interface FDaoC {
 	public ArrayList<FDtoNotice> notice_list(int page);
 	public ArrayList<FDtoNotice> notice_search(String search);
 	public FDtoNotice notice_detail(String num);
-	public ArrayList<FDtoFunding> fundinglistview(int page);
+	public ArrayList<FDtoFunding> funding_list_view(int page);
 	public ArrayList<FDtoFunding> fundingsearch(String search);
 	public ArrayList<FDtoSystemQuestion>systemquestion_view(int page);
 	public ArrayList<FDtoSystemQuestion>systemquestion_search(String search);

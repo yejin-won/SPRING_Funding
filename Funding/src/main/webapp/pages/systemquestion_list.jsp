@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 </head>
 <style>
 .question__wrap {
@@ -130,7 +130,7 @@
 			<div class="question__search__box">
 				<input class="question__search" placeholder="검색하실 제목이나 내용을 입력하세요"
 					id="question_search" name="question_search"> <img
-					src="/Funding/assets/search.svg" class="question__search__icon">
+					src="resources/search.svg" class="question__search__icon">
 			</div>
 		</div>
 		<ul class="question__box">
@@ -143,7 +143,7 @@
 			<c:forEach items="${question }" var="dto">
 				<li class="question__liner">
 					<p class="question__num">${dto.question_num }</p> <a
-					href="systemQuestion_detail.do?question_num=${dto.question_num}"
+					href="systemQuestion_detail?question_num=${dto.question_num}"
 					class="question__title">${dto.question_title }</a>
 					<p class="question__date">${dto.question_at }</p>
 					<p class="question__state">${dto.question_state }</p>
@@ -158,7 +158,7 @@
 		<a href="/Funding/pages/systemquestion_create.jsp"
 			class="question__create">질문 등록하기</a>
 	</div>
-	<script src="/Funding/libraries/jQuery.js"></script>
+	<script src="resources/jQuery.js"></script>
 	<script type="text/javascript">
 	
 	let currentPage = <%=request.getParameter("page")%>*1;
@@ -167,10 +167,10 @@
 	let txt = "";
 	for (var i = 1; i <= pages; i++) {
 		if(i === currentPage){
-			txt += '<a class="selected" href="/Funding/systemQuestion_list.do?page='+i+'">'+i+'</a>'
+			txt += '<a class="selected" href="/Funding/systemQuestion_list?page='+i+'">'+i+'</a>'
 
 		}else{
-			txt += '<a href="/Funding/systemQuestion_list.do?page='+i+'">'+i+'</a>'
+			txt += '<a href="/Funding/systemQuestion_list?page='+i+'">'+i+'</a>'
 
 		}
 	}
@@ -181,7 +181,7 @@
 						"click",
 						".question__search__icon",
 						function() {
-							location.href = "/Funding/systemQuestion_search.do?question_search="
+							location.href = "/Funding/systemQuestion_search?question_search="
 									+ $("#question_search").val();
 						})
 	</script>

@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 </head>
 <style>
 .notice__wrap {
@@ -103,7 +103,7 @@ text-align: center;
 			<div class="notice__search__box">
 				<input class="notice__search" placeholder="검색하실 제목이나 내용을 입력하세요."
 					id="notice__search" name="notice__search"> <img
-					src="/Funding/assets/search.svg" class="notice__search__icon">
+					src="resources/search.svg" class="notice__search__icon">
 			</div>
 		</div>
 		<ul class="notice__box">
@@ -112,7 +112,7 @@ text-align: center;
 				<p class="notice__date">공지일</p></li>
 			<c:forEach items="${notice}" var="notice">
 				<li class="notice__liner"><p class="notice__num">${notice.notice_num }</p>
-					<a href="notice_detail.do?notice_num=${notice.notice_num}"
+					<a href="notice_detail?notice_num=${notice.notice_num}"
 					class="notice__title">${notice.notice_title }</a>
 					<p class="notice__date">${notice.notice_At }</p></li>
 			</c:forEach>
@@ -122,7 +122,7 @@ text-align: center;
 	</div>
 		<script type="text/javascript">
 		$(document).on("click", ".notice__search__icon", function() {
-			location.href = "/Funding/notice_search.do?notice_search="+$("#notice__search").val();
+			location.href = "/Funding/notice_search?notice_search="+$("#notice__search").val();
 		})
 		
 		let currentPage = <%=request.getParameter("page")%>*1;
@@ -131,10 +131,10 @@ text-align: center;
 	let txt = "";
 	for (var i = 1; i <= pages; i++) {
 		if(i === currentPage){
-			txt += '<a class="selected" href="/Funding/notice_list.do?page='+i+'">'+i+'</a>'
+			txt += '<a class="selected" href="/Funding/notice_list?page='+i+'">'+i+'</a>'
 
 		}else{
-			txt += '<a href="/Funding/notice_list.do?page='+i+'">'+i+'</a>'
+			txt += '<a href="/Funding/notice_list?page='+i+'">'+i+'</a>'
 
 		}
 	}
