@@ -303,9 +303,9 @@ justify-content: space-around;
 			</form>
 			<div class="signIn__search">
 				<a href="" target="popup"
-					onclick="window.open('/Funding/findId_view.do','popup','width=300,height=200'); return false;">아이디 찾기</a>
+					onclick="window.open('/Funding/findId_view','popup','width=300,height=200'); return false;">아이디 찾기</a>
 						<a href="" target="popup"
-					onclick="window.open('/Funding/findPw_view.do','popup','width=300,height=400'); return false;">비밀번호 찾기</a>
+					onclick="window.open('/Funding/findPw_view','popup','width=300,height=400'); return false;">비밀번호 찾기</a>
 			</div>
 			<div class="signIn__infoBox">
 				<p class="signIn__info">
