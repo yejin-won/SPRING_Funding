@@ -39,6 +39,6 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
  %>
-  <a href="<%=apiURL%>"><div class="naverLoginBtnBox"><img height="50" src="/Funding/apis/socialLogin/naverBtn.png"/><p>네이버 로그인</p></div></a>
+  <a href="<%=apiURL%>"><div class="naverLoginBtnBox"><img height="50" src="../resources/naverBtn.png"/><p>네이버 로그인</p></div></a>
   </body>
 </html>

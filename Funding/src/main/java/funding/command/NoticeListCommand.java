@@ -26,6 +26,7 @@ public class NoticeListCommand implements FCommand {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		int countNotice = dao.countNotice();
+		page = (page-1)*10;
 		ArrayList<FDtoNotice> list = dao.notice_list(page);
 		
 		request.setAttribute("notice", list);

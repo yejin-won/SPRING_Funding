@@ -98,14 +98,71 @@ public class HomeController {
 	private FCommand mainCommand = null;
 	private FCommand loginCommand = null;
 	private FCommand logoutCommand = null;
+	private FCommand socialLoginCommand =null;
+	private FCommand leaveCommand =null;
+	private FCommand signUpCommand =null;
+	private FCommand findIdCommand =null;
+	private FCommand findPwCommand =null;
+	private FCommand funding_list_viewCommand =null;
+	private FCommand fundingSearchCommand =null;
+	private FCommand fundingContent_viewCommand =null;
+	private FCommand fundingLikeCommand =null;
+	private FCommand fundingUnLikeCommand =null;
+	private FCommand fundingOrderCommand =null;
+	private FCommand fundingQuestionCommand =null;
+	private FCommand systemQuestion_listCommand =null;
+	private FCommand systemQuestion_searchCommand =null;
+	private FCommand systemQuestionCommand =null;
+	private FCommand systemQuestion_detailCommand =null;
+	private FCommand notice_listCommand =null;
+	private FCommand notice_searchCommand =null;
+	private FCommand notice_detailCommand =null;
+	private FCommand mypageCommand =null;
+	private FCommand myorder_detailCommand =null;
+	private FCommand myinformation_modifyCommand =null;
+
 	
 	@Autowired
-	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login, FCommand logout) {
+	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login, FCommand logout,
+			FCommand socialLogin, FCommand leave, FCommand signUp,
+			FCommand findId, FCommand findPw,
+			FCommand funding_list_view, FCommand fundingSearch,
+			FCommand fundingContent_view, FCommand fundingLike,
+			FCommand fundingUnLike,FCommand fundingOrder,
+			FCommand fundingQuestion,FCommand systemQuestion_list,
+			FCommand systemQuestion_search,
+			FCommand systemQuestion, FCommand systemQuestion_detail,
+			FCommand notice_list,FCommand notice_search, FCommand notice_detail,
+			FCommand mypage,FCommand myorder_detail, FCommand myinformation_modify
+			) {
 		this.sloginCommand = slogin;
 		this.slogoutCommand = slogout;
 		this.mainCommand = main;
 		this.loginCommand = login;
 		this.logoutCommand = logout;
+		this.socialLoginCommand = socialLogin;
+		this.leaveCommand = leave;
+		this.signUpCommand = signUp;
+		this.findIdCommand = findId;
+		this.findPwCommand = findPw;
+		this.funding_list_viewCommand = funding_list_view;
+		this.fundingSearchCommand =fundingSearch;
+		this.fundingContent_viewCommand = fundingContent_view;
+		this.fundingLikeCommand =fundingLike;
+		this.fundingUnLikeCommand =fundingUnLike;
+		this.fundingOrderCommand =fundingOrder;
+		this.fundingQuestionCommand =fundingQuestion;
+		this.systemQuestion_listCommand =systemQuestion_list;
+		this.systemQuestion_searchCommand =systemQuestion_search;
+		this.systemQuestionCommand =systemQuestion;
+		this.systemQuestion_detailCommand =systemQuestion_detail;
+		this.notice_listCommand =notice_list;
+		this.notice_searchCommand =notice_search;
+		this.notice_detailCommand =notice_detail;
+		this.mypageCommand =mypage;
+		this.myorder_detailCommand =myorder_detail;
+		this.myinformation_modifyCommand =myinformation_modify;
+		
 	}
 	
 	String viewpage = null;
@@ -140,10 +197,8 @@ public class HomeController {
 		
 		@RequestMapping("/socialLogin")
 		public String sociallogin(HttpServletRequest request, Model model) {
-			System.out.println("sociallogin()");
 			model.addAttribute("request", request);
-			command = new SocialLoginCommand();
-			command.execute(sqlSession, model);
+			socialLoginCommand.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
@@ -152,17 +207,15 @@ public class HomeController {
 		public String logout(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			logoutCommand.execute(sqlSession, model);
-			return "main";
+			return "/main";
 		}
 		
 		@RequestMapping("/leave")
 		public String leave(HttpServletRequest request, Model model) {
-			System.out.println("leave()");
 			model.addAttribute("request", request);
-			command = new LeaveCommand();
-			command.execute(sqlSession, model);
+			leaveCommand.execute(sqlSession, model);
 			
-			return "main.do?sort=all";
+			return "/main";
 		}
 
 		@RequestMapping("/main")
@@ -174,45 +227,33 @@ public class HomeController {
 
 		@RequestMapping("/signUp")
 		public String signup(HttpServletRequest request, Model model) {
-			System.out.println("signup()");
-			
 			model.addAttribute("request", request);
-			command = new SignupCommand();
-			command.execute(sqlSession, model);
+			signUpCommand.execute(sqlSession, model);
 		
 			return "../../pages/login";
 		}
 		@RequestMapping("/findId_view")
 		public String findidView(HttpServletRequest request, Model model) {
-			System.out.println("findidView()");
-		
 			return "../../pages/findId_view";
 		}
+		
 		@RequestMapping("/findId")
 		public String findid(HttpServletRequest request, Model model) {
-			System.out.println("findid()");
-			
 			model.addAttribute("request", request);
-			command = new FindidCommand();	
-			command.execute(sqlSession, model);
-		
+			findIdCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
+		
 		@RequestMapping("/findPw_view")
 		public String findpwView(HttpServletRequest request, Model model) {
-			System.out.println("findpwView()");
-			
-		
 			return "../../pages/findpw_view";
 		}
 
 		@RequestMapping("/findPw")
 		public String findpw(HttpServletRequest request, Model model) {
-			System.out.println("findpw()");
-			
 			model.addAttribute("request", request);
 			command = new FindpwCommand();	
-			command.execute(sqlSession, model);
+			findPwCommand.execute(sqlSession, model);
 		
 			return (String) request.getAttribute("viewpage");
 		}
@@ -220,174 +261,136 @@ public class HomeController {
 		//CUSTOMER FUNCTIONS
 		@RequestMapping("/funding_list_view")
 		public String flistView(HttpServletRequest request, Model model) {
-			System.out.println("flistView()");
-			
 			model.addAttribute("request", request);
-			command = new FundingListViewCommand();	
-			command.execute(sqlSession, model);
-		
+			funding_list_viewCommand.execute(sqlSession, model);
 			return "../../pages/funding_list_view";
 		}
 		
 		@RequestMapping("/fundingSearch")
 		public String fsearch(HttpServletRequest request, Model model) {
-			System.out.println("fsearch()");
-			
 			model.addAttribute("request", request);
-			command = new SearchCommand();	
-			command.execute(sqlSession, model);
+			fundingSearchCommand.execute(sqlSession, model);
 		
 			return "../../pages/funding_list_view";
 		}
 
 		@RequestMapping("/fundingContent_view")
 		public String fcontentView(HttpServletRequest request, Model model) {
-			System.out.println("fcontentView()");
 			model.addAttribute("request", request);
-			command = new FundingdetailCommand();	
-			command.execute(sqlSession, model);
+			fundingContent_viewCommand.execute(sqlSession, model);
 		
 			return "../../pages/detail";
 		}
 
 		@RequestMapping("/fundingLike")
 		public String flike(HttpServletRequest request, Model model) {
-			System.out.println("flike()");
 			model.addAttribute("request", request);
-			command = new FundingLikeCommand();	
-			command.execute(sqlSession, model);
-		
+			fundingLikeCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
 		
 		@RequestMapping("/fundingUnLike")
 		public String funlike(HttpServletRequest request, Model model) {
-			System.out.println("funlike()");
 			model.addAttribute("request", request);
-			command = new FundingUnlikeCommand();	
-			command.execute(sqlSession, model);
+			fundingUnLikeCommand.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
 		
 		@RequestMapping("/fundingOrder")
 		public String forder(HttpServletRequest request, Model model) {
-			System.out.println("forder()");
 			model.addAttribute("request", request);
-			command = new FundingPaymentCommand();	
-			command.execute(sqlSession, model);
+			fundingOrderCommand.execute(sqlSession, model);
 			
 			return "fundingOrder";
 		}
 		
 		@RequestMapping("/fundingQuestion")
 		public String fquestion(HttpServletRequest request, Model model) {
-			System.out.println("fquestion()");
 			model.addAttribute("request", request);
-			command = new FundingQuestionCommand();	
-			command.execute(sqlSession, model);
+			fundingQuestionCommand.execute(sqlSession, model);
 			
 			return (String) request.getAttribute("viewpage");
 		}
 
 		@RequestMapping("/systemQuestion_list")
 		public String sysQL(HttpServletRequest request, Model model) {
-			System.out.println("sysQL()");
 			model.addAttribute("request", request);
-			command = new SystemQuestionlistCommand();	
-			command.execute(sqlSession, model);
+			systemQuestion_listCommand.execute(sqlSession, model);
 			
 			return "../../pages/systemquestion_list";
 		}
 
 		@RequestMapping("/systemQuestion_search")
 		public String sysQS(HttpServletRequest request, Model model) {
-			System.out.println("sysQS()");
 			model.addAttribute("request", request);
-			command = new SystemQuestionSearchCommand();	
-			command.execute(sqlSession, model);
+			systemQuestion_searchCommand.execute(sqlSession, model);
 			
 			return "../../pages/systemquestion_list";
 		}
 
 		@RequestMapping("/systemQuestion")
 		public String sysQ(HttpServletRequest request, Model model) {
-			System.out.println("sysQ()");
 			model.addAttribute("request", request);
-			command = new SystemQuestionCommand();	
-			command.execute(sqlSession, model);
+			systemQuestionCommand.execute(sqlSession, model);
 			
-			return "systemQuestion_list";
+			return "../../../Funding/systemQuestion_list";
 		}
 
 		@RequestMapping("/systemQuestion_detail")
 		public String sysQD(HttpServletRequest request, Model model) {
-			System.out.println("sysQD()");
 			model.addAttribute("request", request);
-			command = new SystemQuestionDetailCommand();	
-			command.execute(sqlSession, model);
+			systemQuestion_detailCommand.execute(sqlSession, model);
 			
-			return "../../pages/systemquestion_detail";
+			return "/systemquestion_detail";
 		}
 
 		@RequestMapping("/notice_list")
 		public String nL(HttpServletRequest request, Model model) {
-			System.out.println("nL()");
 			model.addAttribute("request", request);
-			command = new NoticeListCommand();	
-			command.execute(sqlSession, model);
+			notice_listCommand.execute(sqlSession, model);
 			
 			return "../../pages/notice";
 		}
 
 		@RequestMapping("/notice_search")
 		public String nS(HttpServletRequest request, Model model) {
-			System.out.println("nS()");
 			model.addAttribute("request", request);
-			command = new NoticeSearchCommand();	
-			command.execute(sqlSession, model);
+			notice_searchCommand.execute(sqlSession, model);
 			
 			return "../../pages/notice";
 		}
 
 		@RequestMapping("/notice_detail")
 		public String nD(HttpServletRequest request, Model model) {
-			System.out.println("nD()");
 			model.addAttribute("request", request);
-			command = new NoticeDetailCommand();	
-			command.execute(sqlSession, model);
+			notice_detailCommand.execute(sqlSession, model);
 			
 			return "../../pages/notice_detail";
 		}
 
 		@RequestMapping("/mypage")
 		public String mypage(HttpServletRequest request, Model model) {
-			System.out.println("mypage()");
 			model.addAttribute("request", request);
-			command = new MypageCommand();	
-			command.execute(sqlSession, model);
+			mypageCommand.execute(sqlSession, model);
 			
 			return "../../pages/mypage";
 		}
 
 		@RequestMapping("/myorder_detail")
 		public String myorderD(HttpServletRequest request, Model model) {
-			System.out.println("myorderD()");
 			model.addAttribute("request", request);
-			command = new MyOrderDetailCommand();	
-			command.execute(sqlSession, model);
+			myorder_detailCommand.execute(sqlSession, model);
 			
 			return "../../pages/myorder_detail";
 		}
 
 		@RequestMapping("/myinformation_modify")
 		public String myinfoM(HttpServletRequest request, Model model) {
-			System.out.println("myinfoM()");
 			model.addAttribute("request", request);
-			command = new MyinformationModifyCommand();	
-			command.execute(sqlSession, model);
+			myinformation_modifyCommand.execute(sqlSession, model);
 			
-			return "logout.do?change=pw";
+			return "logout?change=pw";
 		}
 		//---------------------CUSTOMER END-----------------------------
 		
@@ -431,7 +434,7 @@ public class HomeController {
 			command = new SFOApplyCommand();
 			command.execute(sqlSession, model);
 			
-			return "main.do?sort=all";
+			return "/main";
 		}
 		
 		@RequestMapping("/sQApply_view")
@@ -446,7 +449,7 @@ public class HomeController {
 		
 		@RequestMapping("/sQApply")
 		public String sqapply(Model model) {
-			return "main.do?sort=all";
+			return "/main";
 		}
 		
 		

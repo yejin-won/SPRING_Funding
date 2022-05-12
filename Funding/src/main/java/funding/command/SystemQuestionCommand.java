@@ -22,7 +22,7 @@ public class SystemQuestionCommand implements FCommand {
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
-		FDaoC dao = new FDaoC();
+		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		dao.create_systemQuestion(id, title, content);
 	}
 

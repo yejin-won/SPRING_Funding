@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Q&A 작성</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 <style>
 .question__wrap {
 	width: 960px;
@@ -71,18 +71,18 @@
 	border: none;
 }
 </style>
-<script src="/Funding/libraries/jQuery.js"></script>
-<script src="/Funding/libraries/moment.js"></script>
+<script src="resources/jQuery.js"></script>
+<script src="resources/moment.js"></script>
 </head>
-<jsp:include page="../WEB-INF/views/components/header.jsp" />
 <body>
+	<jsp:include page="../WEB-INF/views/components/header.jsp" />
 	<div class="question__wrap">
 		<h1 class="question__pageTitle">Q&A</h1>
 		<div class="question__box">
 			<p class="question__name">
 				작성자 :
 				<%=session.getAttribute("id")%></p>
-			<form class="question__form" action="/Funding/systemQuestion.do">
+			<form class="question__form" action="/Funding/systemQuestion">
 				<input class="question__header" type="text" name="title"
 					placeholder="제목을 입력해주세요">
 
