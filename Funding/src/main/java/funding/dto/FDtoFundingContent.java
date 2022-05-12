@@ -12,6 +12,12 @@ public class FDtoFundingContent {
 	
 	
 	
+	public FDtoFundingContent() {
+		super();
+	}
+
+
+
 	public FDtoFundingContent(int content_funding, String funding_seller, String content_content) {
 		super();
 		this.content_funding = content_funding;

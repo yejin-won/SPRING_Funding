@@ -155,7 +155,7 @@
 
 	</div>
 	<div class="sys__add__question">
-		<a href="/Funding/pages/systemquestion_create.jsp"
+		<a href="systemquestion_create"> <!-- controller에서 경로를 return 해주면 됨  -->
 			class="question__create">질문 등록하기</a>
 	</div>
 	<script src="resources/jQuery.js"></script>
