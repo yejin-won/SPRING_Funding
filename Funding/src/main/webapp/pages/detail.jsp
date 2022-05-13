@@ -207,7 +207,7 @@ if (fid == null) {
 	})
 	$("#funding__isLiked").click(function(){
 		let cid = "<%=session.getAttribute("id")%>"
-		let fid = <%=request.getParameter("id")%>
+		let fid = <%=request.getParameter("fid")%>
 		if(cid === null){
 			alert("먼저 로그인 해주세요!")
 		}else{

@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>주문 완료 페이지</title>
-<link rel="stylesheet" href="./styles/init.css">
-<link rel="stylesheet" href="./styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 </head>
-<script type="text/javascript" src="/Funding/libraries/moment.js"></script>
+<script type="text/javascript" src="resources/moment.js"></script>
 <style>
 .centering{
 	display: flex;
@@ -22,7 +22,7 @@
 	<jsp:include page="./components/header.jsp" />
 	<div class="centering">
 		<h1>펀딩 신청이 완료되었습니다!</h1>
-		<a href="/Funding/main.do?sort=all">메인 화면으로 돌아가기</a>
+		<a href="/Funding/main?sort=all">메인 화면으로 돌아가기</a>
 	</div>
 </body>
 </html>
