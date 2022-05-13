@@ -33,10 +33,9 @@ public class FundingdetailCommand implements FCommand {
 //		Object uID = session.getAttribute("uId"); 
 		HttpSession session = request.getSession();
 		String funding_num  =request.getParameter("fid");
-		String id = (String) session.getAttribute("email");
+		String id = (String) session.getAttribute("id");
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 
-		System.out.println(id);
 		int hits = dao.select_hits(funding_num);
 		hits++;
 		dao.update_hits(funding_num, hits);

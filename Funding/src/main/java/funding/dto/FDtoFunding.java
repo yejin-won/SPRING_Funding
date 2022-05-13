@@ -33,6 +33,11 @@ public class FDtoFunding {
 	public FDtoFunding() {
 	}
 	
+	public FDtoFunding(int funding_num) {
+		super();
+		this.funding_num = funding_num;
+	}
+
 	public FDtoFunding(int funding_num, String funding_title, int total) {
 		super();
 		this.funding_num = funding_num;

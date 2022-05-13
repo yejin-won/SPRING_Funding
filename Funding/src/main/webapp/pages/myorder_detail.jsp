@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>주문 내역 확인</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
 </head>
 <style>
 .notice__wrap {
@@ -80,8 +80,8 @@
 	overflow: hidden;
 }
 </style>
-<script src="/Funding/libraries/jQuery.js"></script>
-<script src="/Funding/libraries/moment.js"></script>
+<script src="resources/jQuery.js"></script>
+<script src="resources/moment.js"></script>
 
 </head>
 
@@ -122,7 +122,6 @@
 		txt += '<p class="ordering__price">' + priceTxt + '원</p>'
 		txt += '<p class="notice__name">${ordering.order_count}개</p>'
 		txt += '<p class="ordering__date">' + dateTxt + '</p></div>'
-		<c:set var ="total" value = "${total+ordering.order_price}"/>
 		</c:forEach>
 		$("#notice__content").html(txt);
 	</script>

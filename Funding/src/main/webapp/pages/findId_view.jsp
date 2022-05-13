@@ -64,7 +64,7 @@
 	
 </script>
 <body>
-	<form name="findId" action="/Funding/findId.do" method="post">
+	<form name="findId" action="/Funding/findId" method="post">
 		<div>
 			이름 <input id="name" type="text" name="name" onkeyup="validate()"
 				onfocus="nameFocus()" onblur="nameValidate()">

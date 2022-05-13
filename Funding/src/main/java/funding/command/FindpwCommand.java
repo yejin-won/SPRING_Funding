@@ -27,9 +27,9 @@ public class FindpwCommand implements FCommand {
 		if(customer_pw!=null) {
 			request.setAttribute("customer_pw", customer_pw);
 			request.setAttribute("customer_id", id);
-			request.setAttribute("viewpage", "../../pages/findpw.jsp");
+			request.setAttribute("viewpage", "../../pages/findpw");
 			
-		}else request.setAttribute("viewpage", "../../pages/findPw_view.jsp?error=error");
+		}else request.setAttribute("viewpage", "../../pages/findpw_view.jsp?error=error");
 	}
 
 }
