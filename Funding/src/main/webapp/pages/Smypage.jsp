@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
-<link rel="stylesheet" href="/Funding/styles/fundingCards.css">
-<link rel="stylesheet" href="/Funding/pages/Smypage.css">
+<link rel="stylesheet" href="resources/init.css">
+<link rel="stylesheet" href="resources/base.css">
+<link rel="stylesheet" href="resources/fundingCards.css">
+<link rel="stylesheet" href="resources/Smypage.css">
 <style type="text/css">
 
 .pages__box{
@@ -33,7 +33,7 @@
 }
 </style>
 </head>
-<script src="/Funding/libraries/jQuery.js"></script>
+<script src="resources/jQuery.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	let email = "<%=session.getAttribute("id")%>";
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<p class="list__date">${funding.funding_openAt }</p>
 								<p class="list__date">${funding.funding_closeAt }</p>
 								<p class="list__detail">
-									<a href="/Funding/myorder_detail.do?funding_num=${funding.funding_num }">상세보기</a>
+									<a href="/Funding/myorder_detail?funding_num=${funding.funding_num }">상세보기</a>
 								</p>
 							</li>
 						</c:forEach>
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 							<p class="list__date">마감일</p></li>
 						<c:forEach items="${like}" var="like">
 							<li class="list__liner"><a
-								href="/Funding/fundingContent_view.do?fid=${like.funding_num}"
+								href="/Funding/fundingContent_view?fid=${like.funding_num}"
 								class="list__title">${like.funding_title }</a>
 								<p class="list__seller">${like.funding_seller }</p>
 								<p class="list__date">${like.funding_openAt }</p>
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						<c:forEach items="${question }" var="dto">
 							<li class="question__liner">
 								<p class="question__num">${dto.question_num }</p> <a
-								href="systemQuestion_detail.do?question_num=${dto.question_num}"
+								href="/Funding/systemQuestion_detail?question_num=${dto.question_num}"
 								class="question__title">${dto.question_title }</a>
 								<p class="question__date">${dto.question_at }</p>
 								<p class="list__detail">${dto.question_state }</p>
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						</li>
 						<c:forEach items="${fundingquestion }" var="dto">
 							<li class="question__liner"><a
-								href="/Funding/fundingContent_view.do?fid=${dto.question_funding}"
+								href="/Funding/fundingContent_view?fid=${dto.question_funding}"
 								class="question__title">${dto.question_funding_title }</a>
 								<p class="question_title">${dto.question_content }</p>
 								<p class="question__date">${dto.question_at }</p></li>
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			</div>
 			<div class="tab__content" id="tab__5__content">
 				<h2 class="my__title">개인정보 관리</h2>
-				<form name="form" action="/smyinformation_modify.do">
+				<form name="form" action="/smyinformation_modify">
 					<div class="my__formzone">
 						<div class="my__liner">
 							<p class="my__form__subtitle">변경할 비밀번호</p>
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<p class="list__date">${Mfunding.funding_openAt }</p>
 								<p class="list__date">${Mfunding.funding_closeAt }</p>
 								<p class="list__title">${Mfunding.funding_state }</p>
-								<a href="/Funding/sMFDetail.do?funding_num=${Mfunding.funding_num}">상세보기</a>
+								<a href="/Funding/sMFDetail?funding_num=${Mfunding.funding_num}">상세보기</a>
 							</li>
 						</c:forEach>
 					</ul>
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<p class="list__title">${myfq.question_content }</p>
 								<p class="list__seller">${myfq.question_state }</p>
 								<p class="list__date">${myfq.question_at }</p>
-							<a href="/Funding/sFADetail.do?question_num=${myfq.question_num}">상세보기</a>
+							<a href="/Funding/sFADetail?question_num=${myfq.question_num}">상세보기</a>
 						</c:forEach>
 					</ul>
 					<div class="pages__box" id="pages__box__7">
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<p class="list__date">${Mfunding.funding_openAt }</p>
 								<p class="list__date">${Mfunding.funding_closeAt }</p>
 								<p class="list__title">${Mfunding.funding_state }</p>
-								<a href="/Funding/movemycal.do?funding_num=${Mfunding.funding_num }">상세보기</a>
+								<a href="/Funding/movemycal?funding_num=${Mfunding.funding_num }">상세보기</a>
 							</li>
 						</c:forEach>
 					</ul>
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		</div>
 	</div>
 
-	<script type="text/javascript" src="/Funding/pages/mypage.js"></script>
+	<script type="text/javascript" src="resources/mypage.js"></script>
 	<script>
 		function checkMyForm() {
 			let form = document.form;
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			let id = "<%=session.getAttribute("id")%>";
 			let emailCheck = prompt("탈퇴하면 입력한 개인정보가 사라집니다. \n참여한 펀딩에 관한 기록은 관련 법률에 따라 3년간 보관됩니다. \n정말 탈퇴하시려면 이메일을 입력해주세요");
 			if(id === emailCheck){
-				location.href = "/Funding/leave.do"
+				location.href = "/Funding/leave"
 			}
 		}
 

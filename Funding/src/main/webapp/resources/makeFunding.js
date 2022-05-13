@@ -284,7 +284,7 @@ $(".MF__moveTab__btn.finish").click(function() {
 	console.log(form)
 	
 	form.setAttribute('method', 'post'); //get,post 가능
-	form.setAttribute('action', "/Funding/sFOApply.do"); //보내는 url > 나중에 login.do로 보내야 함;
+	form.setAttribute('action', "/Funding/sFOApply"); //보내는 url > 나중에 login.do로 보내야 함;
 	document.body.appendChild(form);
 	form.submit();
 })

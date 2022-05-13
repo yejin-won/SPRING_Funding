@@ -35,7 +35,35 @@
 	<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
-	<!--For Seller -->
+	
+	<beans:bean name ="main" class="funding.command.MainCommand"></beans:bean>
+	<beans:bean name ="login" class="funding.command.LoginCommand"></beans:bean>
+	<beans:bean name ="logout" class="funding.command.LogoutCommand"></beans:bean>
+	<beans:bean name ="socialLogin" class="funding.command.SocialLoginCommand"></beans:bean>
+	<beans:bean name ="leave" class="funding.command.LeaveCommand"></beans:bean>
+	<beans:bean name ="signUp" class="funding.command.SignupCommand"></beans:bean>
+	<beans:bean name ="findId" class="funding.command.FindidCommand"></beans:bean>
+	<beans:bean name ="findPw" class="funding.command.FindpwCommand"></beans:bean>
+	<beans:bean name ="funding_list_view" class="funding.command.FundingListViewCommand"></beans:bean>
+	<beans:bean name ="fundingSearch" class="funding.command.SearchCommand"></beans:bean>
+	<beans:bean name ="fundingContent_view" class="funding.command.FundingdetailCommand"></beans:bean>
+	<beans:bean name ="fundingLike" class="funding.command.FundingLikeCommand"></beans:bean>
+	<beans:bean name ="fundingUnLike" class="funding.command.FundingUnlikeCommand"></beans:bean>
+	<beans:bean name ="fundingOrder" class="funding.command.FundingPaymentCommand"></beans:bean>
+	<beans:bean name ="fundingQuestion" class="funding.command.FundingQuestionCommand"></beans:bean>
+	<beans:bean name ="systemQuestion_list" class="funding.command.SystemQuestionlistCommand"></beans:bean>
+	<beans:bean name ="systemQuestion_search" class="funding.command.SystemQuestionSearchCommand"></beans:bean>
+	<beans:bean name ="systemQuestion" class="funding.command.SystemQuestionCommand"></beans:bean>
+	<beans:bean name ="systemQuestion_detail" class="funding.command.SystemQuestionDetailCommand"></beans:bean>
+	<beans:bean name ="notice_list" class="funding.command.NoticeListCommand"></beans:bean>
+	<beans:bean name ="notice_search" class="funding.command.NoticeSearchCommand"></beans:bean>
+	<beans:bean name ="notice_detail" class="funding.command.NoticeDetailCommand"></beans:bean>
+	<beans:bean name ="mypage" class="funding.command.MypageCommand"></beans:bean>
+	<beans:bean name ="myorder_detail" class="funding.command.MyOrderDetailCommand"></beans:bean>
+	<beans:bean name ="myinformation_modify" class="funding.command.MyinformationModifyCommand"></beans:bean>
+	
+	
+		<!--For Seller -->
 	<beans:bean name ="slogin" class="funding.command.SLoginCommand"></beans:bean>
 	<beans:bean name ="slogout" class="funding.command.SLogoutCommand"></beans:bean>
 	<beans:bean name ="ssignup" class="funding.command.SSignUpCommand"></beans:bean>
@@ -51,11 +79,5 @@
 	<beans:bean name ="sFAnswer" class="funding.command.SFAnswerCommand"></beans:bean>
 	<beans:bean name ="smyinformation_modify" class="funding.command.SMyinformationModifyCommand"></beans:bean>
 	<beans:bean name ="movemycal" class="funding.command.SMFCApplyCommand"></beans:bean>
-	
-	
-	<!-- For Customer -->
-	<beans:bean name ="main" class="funding.command.MainCommand"></beans:bean>
-	<beans:bean name ="login" class="funding.command.LoginCommand"></beans:bean>
-	<beans:bean name ="logout" class="funding.command.LogoutCommand"></beans:bean>
 
 </beans:beans> 

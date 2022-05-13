@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>신규 펀딩 만들기</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
-<link rel="stylesheet" href="./makeFunding.css">
+<link rel="stylesheet" href="../resources/init.css">
+<link rel="stylesheet" href="../resources/base.css">
+<link rel="stylesheet" href="../resources/makeFunding.css">
   	<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
       <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
@@ -107,7 +107,7 @@
 
 		</div>
 	</div>
-	<script type="text/javascript" src="/Funding/libraries/jQuery.js"></script>
-	<script type="text/javascript" src="./makeFunding.js"></script>
+	<script type="text/javascript" src="resources/jQuery.js"></script>
+	<script type="text/javascript" src="resources//makeFunding.js"></script>
 </body>
 </html>

@@ -54,13 +54,13 @@
 		, FUNDING_PURPOSE, FUNDING_FEE FROM FUNDING 
 		WHERE FUNDING_NUM = #{param1}
 	</select>
-	<select id="selectOption" resultType="funding.dto.FDtoOrder">
+	<select id="selectOption" resultType="funding.dto.FDtoFundingOption">
 		SELECT OPTION_NUM, OPTION_NAME, OPTION_PRICE, OPTION_AMOUNT 
 		FROM FUNDING_OPTION WHERE OPTION_FUNDING = #{param1}
 	</select>
 	<select id="selectDetail1" resultType="funding.dto.FDtoFundingContent">
-		SELECT CONTENT_CONTENT FROM FUNDING_CONTENT FC INNER JOIN FUNDING F 
-		ON FC.CONTENT_FUNDINGAND F.FUNDING_NUM = #{param1}
+		SELECT CONTENT_CONTENT FROM FUNDING_CONTENT FC INNER JOIN FUNDING F ON FC.CONTENT_FUNDING  = ${value} 
+		AND F.FUNDING_NUM = ${value}
 	</select>
 	<update id="modifySelectDetail">
 		UPDATE FUNDING SET FUNDING_BANNER = #{param1}, FUNDING_TITLE = #{param2}
