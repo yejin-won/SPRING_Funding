@@ -61,7 +61,7 @@
 	<beans:bean name ="mypage" class="funding.command.MypageCommand"></beans:bean>
 	<beans:bean name ="myorder_detail" class="funding.command.MyOrderDetailCommand"></beans:bean>
 	<beans:bean name ="myinformation_modify" class="funding.command.MyinformationModifyCommand"></beans:bean>
-	
+	<beans:bean name ="idcheck" class="funding.command.IdCheckCommand"></beans:bean>
 	
 	<beans:bean name ="slogin" class="funding.command.SLoginCommand"></beans:bean>
 	<beans:bean name ="slogout" class="funding.command.SLogoutCommand"></beans:bean>

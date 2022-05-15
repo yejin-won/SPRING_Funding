@@ -97,6 +97,7 @@ public class HomeController {
 	private FCommand mypageCommand =null;
 	private FCommand myorder_detailCommand =null;
 	private FCommand myinformation_modifyCommand =null;
+	private FCommand idCheckCommand=null;
 
 	
 	@Autowired
@@ -110,7 +111,8 @@ public class HomeController {
 			FCommand systemQuestion_search,
 			FCommand systemQuestion, FCommand systemQuestion_detail,
 			FCommand notice_list,FCommand notice_search, FCommand notice_detail,
-			FCommand mypage,FCommand myorder_detail, FCommand myinformation_modify
+			FCommand mypage,FCommand myorder_detail, FCommand myinformation_modify,
+			FCommand idcheck
 			) {
 		this.sloginCommand = slogin;
 		this.slogoutCommand = slogout;
@@ -139,6 +141,7 @@ public class HomeController {
 		this.mypageCommand =mypage;
 		this.myorder_detailCommand =myorder_detail;
 		this.myinformation_modifyCommand =myinformation_modify;
+		this.idCheckCommand=idcheck;
 		
 	}
 	
@@ -373,6 +376,13 @@ public class HomeController {
 			myinformation_modifyCommand.execute(sqlSession, model);
 			
 			return "logout?change=pw";
+		}
+		@RequestMapping("/idcheck")
+		public String idCheck(HttpServletRequest request, Model model) {
+			model.addAttribute("request", request);
+			idCheckCommand.execute(sqlSession, model);
+			
+			return "../../pages/sidCheckProc";
 		}
 		//---------------------CUSTOMER END-----------------------------
 		

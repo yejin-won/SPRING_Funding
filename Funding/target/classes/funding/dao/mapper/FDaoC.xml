@@ -24,8 +24,11 @@
 	<select id="findpw" resultType="String">
 	SELECT CUSTOMER_PW FROM CUSTOMER WHERE CUSTOMER_ID = #{param1} AND CUSTOMER_PW_Q = #{param2} AND CUSTOMER_PW_A = #{param3}
 	</select>
-	<select id="checkEmail" resultType="String">
-	SELECT CUSTOMER_ID FROM CUSTOMER WHERE CUSTOMER_ID = ${param1}
+	<select id="checkCustomer" resultType="String">
+	SELECT CUSTOMER_ID FROM CUSTOMER WHERE CUSTOMER_ID = #{value}
+	</select>
+	<select id="checkSeller" resultType="String">
+	SELECT SELLER_ID FROM SELLER WHERE SELLER_ID = #{value}
 	</select>
 
 	<!-- 메인-->
@@ -148,7 +151,7 @@
 	</select>
 	<select id="myfundinglist" resultType="funding.dto.FDtoFunding">
 	SELECT FUNDING_NUM, FUNDING_SELLER, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT, 
-	(SELECT SELLER_NAME FROM SELLER AS S WHERE F.FUNDING_SELLER = S.SELLER_ID) FROM FUNDING AS F 
+	(SELECT SELLER_NAME FROM SELLER AS S WHERE F.FUNDING_SELLER = S.SELLER_ID) AS SELLER_NAME FROM FUNDING AS F 
 	WHERE FUNDING_NUM IN (SELECT ORDER_FUNDING FROM ORDER1 WHERE ORDER_CUSTOMER = #{param1}) 
 	ORDER BY FUNDING_NUM DESC LIMIT 10 OFFSET ${param2}
 	</select>
