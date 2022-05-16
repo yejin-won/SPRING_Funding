@@ -17,7 +17,7 @@
 	</select>
 	<select id="checkDuplicateId" resultType="funding.dto.FDtoS">
 		SELECT S.SELLER_ID, C.CUSTOMER_ID FROM SELLER S, CUSTOMER C 
-		WHERE C.CUSTOMER_ID = #{param1} OR S.SELLER_ID = #{param2}
+		WHERE C.CUSTOMER_ID = #{param1} OR S.SELLER_ID = #{param1}
 	</select>
 	<insert id="address">
 		INSERT INTO ADDRESS (ADDRESS_SELLER, ADDRESS_STATE, ADDRESS_CITY, ADDRESS_LINE) 

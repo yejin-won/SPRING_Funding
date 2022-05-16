@@ -18,7 +18,8 @@ public interface FDaoC {
 	public void addAddress(String customer_id, String address1, String address2, String address3);
 	public String findId(String name, String phone);
 	public String findpw(String id, String pw_q, String pw_a);
-	public boolean checkEmail(String email);
+	public String checkSeller(String email);
+	public String checkCustomer(String email);
 	
 	public ArrayList<FDtoFunding> mainlist(String querying);
 	

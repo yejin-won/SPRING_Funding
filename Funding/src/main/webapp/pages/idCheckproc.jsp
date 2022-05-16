@@ -10,17 +10,13 @@
 </head>
 <div style="text-align: center"></div> 
 <h3>* 아이디 중복 확인 결과 *</h3> 
-<%
- 	SqlSession sqlSession = null;
-	String id=request.getParameter("id"); 
- 	FDaoS daoS = sqlSession.getMapper(FDaoS.class);
- 	boolean id_check=daoS.checkDuplicateId(id);
- 	int cnt =0;
- 	out.println("입력 ID : <strong>" + id + "</stong>"); 
- 	if(id_check==true){ out.println("<p>사용 가능한 아이디입니다.</p>"); 
- 	out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>");
- %> 
-	<script> 
+<% 
+boolean id_check = (boolean)request.getAttribute("result");
+	String id = (String)request.getAttribute("id");
+	out.println("입력 ID : <strong>" + id + "</stong>"); 
+	if(id_check==true){ out.println("<p>사용 가능한 아이디입니다.</p>"); 
+	out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>"); %> 
+<script> 
 	function apply(id){
 		alert("apply");
 		opener.document.signUpForm.id.value=id; 
@@ -35,6 +31,7 @@
 		  <a href="javascript:history.back()">[다시시도]</a> 
 		  &nbsp; &nbsp; 
 		  <a href="javascript:window.close()">[창닫기]</a>
+
 
 </body>
 </html>
