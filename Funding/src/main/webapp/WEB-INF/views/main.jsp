@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		txt	+= '<div class="fundingThumbBox">';
 		txt += '<img src=${fd.funding_banner}></div>';
 		txt += '<div class="fundingContentBox"><div class="fundingContentLeft">'
-		txt += '<p class="fundingTitle">${fd.funding_title}</p>'
+		txt += '<p class="fundingTitle">${fd.funding_title}</p>' //해당부분 erro 발생
 		txt += '<p class="fundingSeller"></p></div>'
 		txt += '<div class="fundingRate">${fd.funding_achievement}%</div></div>'
 		txt += '<div class="fundingCardBottom">'
