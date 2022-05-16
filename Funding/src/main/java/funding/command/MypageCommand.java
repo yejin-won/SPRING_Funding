@@ -51,22 +51,22 @@ public class MypageCommand implements FCommand {
 		if(tab == 1) {
 			myfundinglist = dao.myfundinglist(id, page);		
 		}else {
-			myfundinglist = dao.myfundinglist(id, 1);		
+			myfundinglist = dao.myfundinglist(id, 0);		
 		}
 		if(tab == 2) {
 			mylikelist = dao.mylikelist(id, page);	
 		}else {
-			mylikelist = dao.mylikelist(id, 1);		
+			mylikelist = dao.mylikelist(id, 0);		
 		}
 		if(tab == 3) {
 			myquestionlist = dao.mysystemquestion_list(id, page);
 		}else {
-			myquestionlist = dao.mysystemquestion_list(id, 1);
+			myquestionlist = dao.mysystemquestion_list(id, 0);
 		}
 		if(tab == 4) {
 			myfundingquestionlist = dao.myfundingquestion_list(id, page);
 		}else {
-			myfundingquestionlist = dao.myfundingquestion_list(id, 1);	
+			myfundingquestionlist = dao.myfundingquestion_list(id, 0);	
 		}
 		
 		
@@ -74,7 +74,6 @@ public class MypageCommand implements FCommand {
 		request.setAttribute("myLikeCount", myLikeCount);
 		request.setAttribute("mySystemQuestionCount", mySystemQuestionCount);
 		request.setAttribute("myFundingQuestionCount", myFundingQuestionCount);
-		
 		request.setAttribute("funding", myfundinglist);
 		request.setAttribute("like", mylikelist);
 		request.setAttribute("question", myquestionlist);
