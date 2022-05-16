@@ -101,7 +101,8 @@ public class HomeController {
 
 	
 	@Autowired
-	public void auto(FCommand slogin, FCommand slogout, FCommand main, FCommand login, FCommand logout,
+	public void auto(FCommand slogin, FCommand slogout, FCommand main,
+			FCommand login, FCommand logout,
 			FCommand socialLogin, FCommand leave, FCommand signUp,
 			FCommand findId, FCommand findPw,
 			FCommand funding_list_view, FCommand fundingSearch,
