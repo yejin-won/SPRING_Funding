@@ -8,7 +8,7 @@ import funding.dto.FDtoFunding;
 import funding.dto.FDtoFundingContent;
 import funding.dto.FDtoFundingOption;
 import funding.dto.FDtoFundingQuestion;
-import funding.dto.FDtoLogin;
+//import funding.dto.FDtoLogin;
 import funding.dto.FDtoS;
 
 public interface FDaoS {

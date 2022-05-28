@@ -122,7 +122,7 @@ text-align: center;
 				<p class="sMFCApply__state">${list.calculate_state }</p>					
 				</li>
 		</ul>
-			<a href="/Funding/sMFCApply_view.do?calculate_funding=${fNum }" class="notice__toList">신청하기</a>
+			<a href="/Funding/sMFCApply_view?calculate_funding=${fNum }" class="notice__toList">신청하기</a>
 	</div>
 </body>
 </html>

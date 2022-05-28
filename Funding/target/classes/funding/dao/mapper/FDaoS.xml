@@ -39,11 +39,11 @@
 		WHERE CALCULATE_SELLER = #{param1} AND CALCULATE_FUNDING = #{param2}
 	</select>
 	<insert id="sMFCapply">
-		INSERT INTO CALCULATE (CALCULATE_FUNDING, CALCULATE_SELLER, CALCULATE_ADMIN
-		, CALCULATE_COST, CALCULATE_CREATEAT, CALCULATE_STATE)
-		VALUES(#{param1},#{param2},'admin@admin.com',(SELECT SUM(ORDER_PRICE * ORDER_COUNT)
+		INSERT INTO CALCULATE (CALCULATE_FUNDING, CALCULATE_SELLER, CALCULATE_ADMIN, CALCULATE_COST, CALCULATE_CREATEAT, CALCULATE_STATE)
+		VALUES(#{param1}, #{param2}, 'admin@admin.com', (SELECT SUM(O.ORDER_PRICE * O.ORDER_COUNT)
 		FROM ORDER1 O ,CALCULATE C
 		WHERE O.ORDER_FUNDING = C.CALCULATE_FUNDING GROUP BY O.ORDER_FUNDING) ,now(),'정산대기')
+
 	</insert>
 	<select id="Mfunding_list" resultType="funding.dto.FDtoFunding">
 		SELECT FUNDING_NUM, FUNDING_TITLE, FUNDING_OPENAT, FUNDING_CLOSEAT
@@ -114,8 +114,9 @@
 		, (SELECT SUM(ORDER_PRICE*ORDER_COUNT) FROM ORDER1 O WHERE O.ORDER_FUNDING = F.FUNDING_NUM) AS TOTAL
 		FROM FUNDING F WHERE FUNDING_NUM = #{param1}
 	</select>
-	<select id="calinf" resultType="funding.dto.FDtoCalculate">
+	<select id="calinf" resultType="String">
 		select c.calculate_state from calculate c, funding f
-		where f.funding_num = #{param1}
+		where f.funding_num = #{param1} in (select calculate_funding from calculate) 
+		and f.funding_seller = c.calculate_seller
 	</select>
 </mapper>
