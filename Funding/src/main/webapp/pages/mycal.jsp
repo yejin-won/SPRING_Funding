@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>펀딩 정산 내역</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="./init.css">
+<link rel="stylesheet" href="./base.css">
 </head>
 <style>
 .notice__wrap {
@@ -80,8 +80,8 @@
 	overflow: hidden;
 }
 </style>
-<script src="/Funding/libraries/jQuery.js"></script>
-<script src="/Funding/libraries/moment.js"></script>
+<script src="/Funding/resources/jQuery.js"></script>
+<script src="/Funding/resources/moment.js"></script>
 
 </head>
 

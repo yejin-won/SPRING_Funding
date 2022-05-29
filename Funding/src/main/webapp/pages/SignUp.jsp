@@ -356,7 +356,7 @@ background-position
 	    
 	}
 	function idCheck(){
-		window.open("/Funding/pages/idCheck.jsp","popup","width=600,height=600")
+		window.open("/Funding/pages/sidCheckForm.jsp","popup","width=600,height=600")
 	}
 	function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn
 							, detBdNmList, bdNm, bdKdcd, siNm, sggNm, emdNm, liNm, rn, udrtYn, buldMnnm, buldSlno, mtYn, lnbrMnnm, lnbrSlno, emdNo){

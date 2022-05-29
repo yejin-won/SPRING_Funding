@@ -10,10 +10,11 @@
 <div style="text-align: center"></div> 
 <h3>* 아이디 중복 확인 결과 *</h3> 
 <% 
-
+	String id=request.getParameter("id"); 
+	//
 	boolean id_check = (boolean)request.getAttribute("result");
-	String id = (String)request.getAttribute("id");
-	out.println("입력 ID : <strong>" + id + "</stong>"); 
+	//String id = (String)request.getAttribute("id");
+	out.println("입력 ID : <strong>" + id + "</strong>"); 
 	if(id_check==true){ out.println("<p>사용 가능한 아이디입니다.</p>"); 
 	out.println("<a href='javascript:apply(\"" + id + "\")'>[적용]</a>"); %> 
 	<script> 

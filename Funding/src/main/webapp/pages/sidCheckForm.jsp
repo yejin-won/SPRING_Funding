@@ -14,7 +14,7 @@
 <body>
 <div style = "text-align : center;">
 		<h3>*아이디 중복확인*</h3>
-		<form action="idCheck" method="post">
+		<form action="sidCheckProc.jsp" method="get">
 		아이디 : <input type = "text" name = "id" autofocus>
 		<input type="submit" value="중복확인">
 		</form>

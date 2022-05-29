@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>펀딩 정산 신청페이지</title>
-<link rel="stylesheet" href="/Funding/styles/init.css">
-<link rel="stylesheet" href="/Funding/styles/base.css">
+<link rel="stylesheet" href="./init.css">
+<link rel="stylesheet" href="./base.css">
 </head>
 <style>
 .notice__wrap {
@@ -100,7 +100,7 @@ text-align: center;
 			<div class="notice__search__box">
 				<input class="notice__search" placeholder="검색어를 입력하세요"
 					id="notice__search" name="notice__search"> <img
-					src="/Funding/assets/search.svg" class="notice__search__icon">
+					src="/Funding/views/assets/search.svg" class="notice__search__icon">
 			</div>
 		</div>
 		<ul class="sMFCApply__box">

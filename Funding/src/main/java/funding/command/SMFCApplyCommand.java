@@ -19,12 +19,12 @@ public class SMFCApplyCommand implements FCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
 		String funding_num = request.getParameter("funding_num");
-		//String funding_seller = request.getParameter(funding_num);
+		String funding_seller = request.getParameter(funding_num);
 		
 		FDaoS daoSeller = sqlSession.getMapper(FDaoS.class);
-		//FDtoFunding dto = daoSeller.calfunding(funding_num);
+		FDtoFunding dto = daoSeller.calfunding(funding_num);
 		String result = daoSeller.calinf(funding_num);
-		//request.setAttribute("funding", dto);
+		request.setAttribute("funding", dto);
 		request.setAttribute("cal", result);
 	
 	}

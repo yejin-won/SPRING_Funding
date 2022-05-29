@@ -275,8 +275,8 @@ justify-content: space-around;
 	<div class="signIn__wrap">
 		<div class="signIn__content">
 			<h1 class="signIn__title">로그인</h1>
-			<!--<jsp:include page="./kakaoLogin.jsp" />
-			<jsp:include page="./naverLogin.jsp" />-->
+			<jsp:include page="../resources/kakaoLogin.jsp" />
+			<jsp:include page="../resources/naverLogin.jsp" />
 			<div class="signIn__divider"></div>
 			<form action="/Funding/login" name="signInForm" method="post"
 				onsubmit="checkCheck()">
