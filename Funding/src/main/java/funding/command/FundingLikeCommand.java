@@ -13,11 +13,8 @@ import funding.dao.FDaoC;
 
 
 public class FundingLikeCommand implements FCommand {
-
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		// TODO Auto-generated method stub
-		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		
@@ -27,9 +24,11 @@ public class FundingLikeCommand implements FCommand {
 		
 		int like_funding  = Integer.parseInt(request.getParameter("funding_num")) ;
 		
-		request.setAttribute("viewpage", "redirect:/fundingContent_view?fid=" + request.getParameter("funding_num"));
+		request.setAttribute("viewpage", "redirect:/fundingContent_view?fid="+request.getParameter("funding_num"));
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		dao.likeInsert(like_customer, like_funding, like_at);
 		
 	}
 }
+
+

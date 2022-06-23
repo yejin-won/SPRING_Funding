@@ -20,7 +20,8 @@ public class SignupCommand implements FCommand {
 		String id = request.getParameter("id").trim();
 		String pw = request.getParameter("pw").trim();
 		String name = request.getParameter("name").trim();
-		String phone = request.getParameter("phone1")+"-"+request.getParameter("phone2").trim()+
+		String phone = request.getParameter("phone1")+
+				"-"+request.getParameter("phone2").trim()+
 				"-"+request.getParameter("phone3").trim();
 		String addrees1 = request.getParameter("address1");
 		String addrees2 = request.getParameter("address2");
@@ -34,3 +35,4 @@ public class SignupCommand implements FCommand {
 	}
 
 }
+

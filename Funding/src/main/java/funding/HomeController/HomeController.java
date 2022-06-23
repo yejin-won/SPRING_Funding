@@ -145,87 +145,53 @@ public class HomeController {
 	String viewpage = null;
 	//-------------------------
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "hello";
-	}
-	
-	
 		//---------------------CUSTOMER START-----------------------------
 		//CUSTOMER Sign In/Out & Log In
+	
 		@RequestMapping("/login")
 		public String login(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			loginCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
-		
 		@RequestMapping("/socialLogin")
 		public String sociallogin(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			socialLoginCommand.execute(sqlSession, model);
-			
 			return (String) request.getAttribute("viewpage");
 		}
-		
 		@RequestMapping("/logout")
 		public String logout(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			logoutCommand.execute(sqlSession, model);
 			return "redirect:/main";
 		}
-		
 		@RequestMapping("/leave")
 		public String leave(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			leaveCommand.execute(sqlSession, model);
-			
 			return "redirect:/main";
 		}
-
-		@RequestMapping("/main")
-		public String mainscreen(HttpServletRequest request, Model model) {
-			model.addAttribute("request", request);
-			mainCommand.execute(sqlSession, model);
-			return "main";
-		}
-
 		@RequestMapping("/signUp")
 		public String signup(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			signUpCommand.execute(sqlSession, model);
-		
 			return "../../pages/login";
 		}
 		@RequestMapping("/findId_view")
 		public String findidView(HttpServletRequest request, Model model) {
 			return "../../pages/findId_view";
 		}
-		
 		@RequestMapping("/findId")
 		public String findid(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
 			findIdCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
-		
 		@RequestMapping("/findPw_view")
 		public String findpwView(HttpServletRequest request, Model model) {
 			return "../../pages/findpw_view";
 		}
-
 		@RequestMapping("/findPw")
 		public String findpw(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
@@ -234,7 +200,14 @@ public class HomeController {
 		
 			return (String) request.getAttribute("viewpage");
 		}
-
+		
+		@RequestMapping("/main")
+		public String mainscreen(HttpServletRequest request, Model model) {
+			model.addAttribute("request", request);
+			mainCommand.execute(sqlSession, model);
+			return "main";
+		}
+		
 		//CUSTOMER FUNCTIONS
 		@RequestMapping("/funding_list_view")
 		public String flistView(HttpServletRequest request, Model model) {
@@ -258,7 +231,7 @@ public class HomeController {
 		
 			return "../../pages/detail";
 		}
-
+		
 		@RequestMapping("/fundingLike")
 		public String flike(HttpServletRequest request, Model model) {
 			model.addAttribute("request", request);
