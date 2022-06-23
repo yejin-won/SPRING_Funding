@@ -26,7 +26,7 @@ public class ANRemoveCommand implements FCommand {
 		
 		String notice_num = request.getParameter("noticeNum");
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		daoA.anoticedelete(notice_num);
+		//daoA.anoticedelete(notice_num);
 
 	}
 

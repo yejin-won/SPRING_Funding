@@ -26,8 +26,8 @@ public class AFRejectCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		String fundingNum = request.getParameter("fundingNum");
-		FDaoA dao = sqlSession.getMapper(FDaoA.class);
-		FDtoFunding dto = dao.fundingreject(fundingNum);
+		//FDaoA dao = sqlSession.getMapper(FDaoA.class);
+		//FDtoFunding dto = dao.fundingreject(fundingNum);
 		
 	}
 

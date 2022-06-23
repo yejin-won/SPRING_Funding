@@ -24,17 +24,17 @@ public class ALoginCommand implements FCommand {
 		
 		
 
-		String aId = daoA.AlogIn(aid, apw);
-		if(aId != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("adminId", aId);
-		}
-
-		if(aId == null) {
-			request.setAttribute("viewPage", "aLogin.jsp?error=error");
-		}else {
-			request.setAttribute("viewPage", "aCList.do");
-		}
+		//String aId = daoA.AlogIn(aid, apw);
+//		if(aId != null) {
+//			HttpSession session = request.getSession();
+//			session.setAttribute("adminId", aId);
+//		}
+//
+//		if(aId == null) {
+//			request.setAttribute("viewPage", "aLogin.jsp?error=error");
+//		}else {
+//			request.setAttribute("viewPage", "aCList.do");
+//		}
 		
 
 	}

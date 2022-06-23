@@ -22,9 +22,10 @@ public class SocialLoginCommand implements FCommand {
 		String input_id = request.getParameter("email");
 		HttpSession session = request.getSession();
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
-		Boolean res = dao.checkEmail(input_id);
-		
-		
+		String customer = dao.checkCustomer(input_id);
+		String seller = dao.checkSeller(input_id);
+		boolean res = false;
+		if(customer==null&&seller==null) res=true;
 		
 		if(res) {
 			request.setAttribute("viewpage", "main.do?sort=all");

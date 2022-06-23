@@ -26,8 +26,8 @@ public class ACListCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoC> dtos = daoA.clist(adminId);
-		request.setAttribute("clist", dtos);
+		//ArrayList<FDtoC> dtos = daoA.clist(adminId);
+		//request.setAttribute("clist", dtos);
 		
 	}
 

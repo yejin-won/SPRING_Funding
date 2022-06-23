@@ -25,7 +25,7 @@ public class ACApproveCommand implements FCommand {
 		
 		String calNum = request.getParameter("calNum");
 		FDaoA dao = sqlSession.getMapper(FDaoA.class);
-		FDtoCalculate dto = dao.calapprove(calNum);
+		//FDtoCalculate dto = dao.calapprove(calNum);
 	}
 
 }

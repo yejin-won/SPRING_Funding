@@ -70,8 +70,6 @@ public class HomeController {
 	
 	
 	FCommand command = null;
-	private FCommand sloginCommand = null;
-	private FCommand slogoutCommand = null;
 	private FCommand mainCommand = null;
 	private FCommand loginCommand = null;
 	private FCommand logoutCommand = null;
@@ -115,8 +113,6 @@ public class HomeController {
 			FCommand mypage,FCommand myorder_detail, FCommand myinformation_modify,
 			FCommand idcheck
 			) {
-		this.sloginCommand = slogin;
-		this.slogoutCommand = slogout;
 		this.mainCommand = main;
 		this.loginCommand = login;
 		this.logoutCommand = logout;
@@ -394,7 +390,7 @@ public class HomeController {
 		public String slogin(HttpServletRequest request, Model model) {
 			System.out.println("login");
 			model.addAttribute("request", request);
-			sloginCommand.execute(sqlSession, model);
+			//sloginCommand.execute(sqlSession, model);
 			return (String) request.getAttribute("viewpage");
 		}
 		
@@ -404,7 +400,7 @@ public class HomeController {
 			model.addAttribute("request", request);
 //			command = new SLogoutCommand();
 //			command.execute(sqlSession, model);
-			slogoutCommand.execute(sqlSession, model);
+			//slogoutCommand.execute(sqlSession, model);
 			
 			return "../../pages/slogin";
 		}
