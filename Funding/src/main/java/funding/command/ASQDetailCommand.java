@@ -26,8 +26,8 @@ public class ASQDetailCommand implements FCommand {
 		
 		String sellerId = request.getParameter("sellerId");
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoSeller> dtos = daoA.sellerdetail(sellerId);
-		request.setAttribute("sellerdetail", dtos);
-	}
+//		ArrayList<FDtoSeller> dtos = daoA.sellerdetail(sellerId);
+//		request.setAttribute("sellerdetail", dtos);
+		}
 
 }

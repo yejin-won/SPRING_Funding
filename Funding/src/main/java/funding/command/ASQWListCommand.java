@@ -25,8 +25,8 @@ public class ASQWListCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoSeller> dtos = daoA.sellerapplylist();
-		request.setAttribute("sellerapplylist", dtos);
+		//ArrayList<FDtoSeller> dtos = daoA.sellerapplylist();
+		//request.setAttribute("sellerapplylist", dtos);
 		
 
 	}

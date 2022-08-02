@@ -26,8 +26,8 @@ public class AFAWListCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoFunding> dtos = daoA.fapprovewaitlist();
-		request.setAttribute("fapprovewaitlist", dtos);
+		//ArrayList<FDtoFunding> dtos = daoA.fapprovewaitlist();
+		//request.setAttribute("fapprovewaitlist", dtos);
 	
 	}
 

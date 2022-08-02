@@ -30,7 +30,7 @@ public class ANCreateCommand implements FCommand {
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
-		daoA.anoticecreate(notice_admin, notice_title, notice_content);
+		//daoA.anoticecreate(notice_admin, notice_title, notice_content);
 
 	}
 

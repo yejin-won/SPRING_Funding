@@ -11,6 +11,7 @@ import funding.dto.FDtoOrder;
 import funding.dto.FDtoSystemQuestion;
 
 public interface FDaoC {
+	
 	public void leave(String id);
 	public String login(String id, String pw);
 	public void signUp(String customer_id, String customer_pw, String customer_name, 
@@ -22,7 +23,6 @@ public interface FDaoC {
 	public String checkCustomer(String email);
 	
 	public ArrayList<FDtoFunding> mainlist(String querying);
-	
 	public String checkLike(String cid, String fid);
 	public FDtoFunding funding_detail(String fnum);
 	public ArrayList<FDtoFundingOption> optionList(String funding_num);

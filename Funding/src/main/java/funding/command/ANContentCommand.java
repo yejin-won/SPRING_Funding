@@ -25,8 +25,8 @@ public class ANContentCommand implements FCommand {
 		
 		String noticeNum = request.getParameter("noticeNum");
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		FDtoNotice dto = daoA.noticecontent(noticeNum);
-		request.setAttribute("noticecontent", dto);
+//		FDtoNotice dto = daoA.noticecontent(noticeNum);
+//		request.setAttribute("noticecontent", dto);
 
 	}
 	

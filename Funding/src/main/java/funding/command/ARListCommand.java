@@ -31,16 +31,8 @@ public class ARListCommand implements FCommand {
 		System.out.println(queryContent);
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		
-		//�뙋留ㅼ옄 �듅�씤 ��湲� 由ъ뒪�
-		//ArrayList<FDtoC> dtos = daoA.clist(adminId);
-		
-		//���뵫 �듅�씤 ��湲� 由ъ뒪�듃
-		ArrayList<FDtoC> dtos = daoA.clist(adminId);
-		
-		//�젙�궛 �듅�씤 ��湲� 由ъ뒪�듃
-		//ArrayList<FDtoC> dtos = daoA.clist(adminId);
-		request.setAttribute("clist", dtos);
+//		ArrayList<FDtoC> dtos = daoA.clist(adminId);
+//		request.setAttribute("clist", dtos);
 		
 		
 		

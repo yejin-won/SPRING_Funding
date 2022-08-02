@@ -26,7 +26,7 @@ public class ASQualifyCommand implements FCommand {
 		
 		String sellerId = request.getParameter("sellerId");
 		FDaoA dao = sqlSession.getMapper(FDaoA.class);
-		FDtoSeller dto = dao.sellerqualify(sellerId);
+		//FDtoSeller dto = dao.sellerqualify(sellerId);
 		
 	}
 

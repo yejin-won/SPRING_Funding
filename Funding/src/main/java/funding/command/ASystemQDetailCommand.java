@@ -27,9 +27,8 @@ public class ASystemQDetailCommand implements FCommand {
 		
 		String question_num = request.getParameter("question_num");
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoSystemQuestion> dtos = daoA.SystemQuestionDetail(question_num);
-		
-		request.setAttribute("system_question_detail", dtos);
+//		ArrayList<FDtoSystemQuestion> dtos = daoA.SystemQuestionDetail(question_num);
+//		request.setAttribute("system_question_detail", dtos);
 	}
 		
 	}

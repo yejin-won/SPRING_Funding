@@ -27,7 +27,7 @@ public class ASystemQuestionRemoveCommand implements FCommand {
 		
 		String question_num = request.getParameter("question_num");
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		daoA.SystemQuestionRemove(question_num);
+		//daoA.SystemQuestionRemove(question_num);
 
 	}
 

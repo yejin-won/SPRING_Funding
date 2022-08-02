@@ -26,8 +26,8 @@ public class AFListCommand implements FCommand {
 		String adminId = (String)adminID;
 		
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
-		ArrayList<FDtoFunding> dtos = daoA.fundinglist();
-		request.setAttribute("fundinglist", dtos);
+		//ArrayList<FDtoFunding> dtos = daoA.fundinglist();
+		//request.setAttribute("fundinglist", dtos);
 	}
 
 }

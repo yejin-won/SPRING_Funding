@@ -17,10 +17,9 @@ public class FindidCommand implements FCommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		
 		String name = request.getParameter("name").trim();
-		String phone = request.getParameter("phone1").trim()+"-"+request.getParameter("phone2").trim()+
+		String phone = request.getParameter("phone1").trim()+
+				"-"+request.getParameter("phone2").trim()+
 				"-"+request.getParameter("phone3").trim();
 		FDaoC dao = sqlSession.getMapper(FDaoC.class);
 		String customer_id = dao.findId(name, phone);
@@ -33,3 +32,5 @@ public class FindidCommand implements FCommand {
 	}
 
 }
+
+

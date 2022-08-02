@@ -1,5 +1,4 @@
 package funding.command;
-
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -15,9 +14,6 @@ import funding.dto.FDtoFunding;
 import funding.dto.FDtoFundingOption;
 import funding.dto.FDtoFundingQuestion;
 import funding.dto.FDtoOrder;
-
-
-
 public class FundingdetailCommand implements FCommand {
 
 	@Override
@@ -26,11 +22,7 @@ public class FundingdetailCommand implements FCommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		
-		//세션이 필요하다면 활성화하기
-//		HttpSession session = request.getSession();
-//		Object uID = session.getAttribute("uId"); 
+
 		HttpSession session = request.getSession();
 		String funding_num  =request.getParameter("fid");
 		String id = (String) session.getAttribute("id");

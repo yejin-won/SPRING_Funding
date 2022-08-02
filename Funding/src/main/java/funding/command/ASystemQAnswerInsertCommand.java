@@ -29,7 +29,7 @@ public class ASystemQAnswerInsertCommand implements FCommand {
 
 		FDaoA daoA = sqlSession.getMapper(FDaoA.class);
 		
-		daoA.SystemQAnswerInsert(question_answer, question_num);
+		//daoA.SystemQAnswerInsert(question_answer, question_num);
 	}
 
 }
