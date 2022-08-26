@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
 <body>
-	<jsp:include page="../WEB-INF/views/components/header.jsp" />
+	<jsp:include page="../pages/header.jsp" />
 	<div class="MF__background">
 		<div class="MF__wrap">
 			<div class="MF__tabs">

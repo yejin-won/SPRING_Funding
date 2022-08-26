@@ -33,7 +33,7 @@
 }
 </style>
 </head>
-<script src="resources/jQuery.js"></script>
+<script src="../../resources/jQuery.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	let email = "<%=session.getAttribute("id")%>";
